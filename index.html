@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chelsy Shah</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sage:#7D9B76;
+  --sage-light:#A8BFA3;
+  --sage-pale:#D4E3D0;
+  --sage-mist:#EBF2E8;
+  --moss:#4A6741;
+  --eucalyptus:#8FB5A0;
+  --mist:#B8CDD6;
+  --mist-pale:#D8E8EE;
+  --mist-deep:#7FA8B8;
+  --navy:#1C2B3A;
+  --navy-soft:#2E4057;
+  --cream:#F7F4EE;
+  --plaster:#F0EDE5;
+  --sourdough:#E8E2D8;
+  --beige:#D8D0C4;
+  --ink:#1A1A1A;
+  --smoke:#6B6560;
+  --muted:#9A9590;
+  --white:#FFFFFF;
+  --r:12px;
+  --r-sm:6px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);color:var(--ink);font-size:14px;line-height:1.6;overflow-x:hidden}
+
+/* ── PAGES ── */
+.pg{display:none}.pg.on{display:block}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:300;background:rgba(247,244,238,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--sourdough);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:56px}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:-.02em;cursor:pointer;color:var(--navy)}
+.logo span{color:var(--sage)}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;cursor:pointer;color:var(--smoke);border:none;background:none;border-radius:20px;transition:.2s;white-space:nowrap}
+.nl:hover{color:var(--navy);background:var(--sage-mist)}
+.nl.on{color:var(--white);background:var(--navy)}
+.nav-pill{font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;background:var(--sage);color:var(--white);border:none;border-radius:20px;cursor:pointer;transition:.2s}
+.nav-pill:hover{background:var(--moss)}
+
+/* ── TICKER ── */
+.ticker{background:var(--navy);color:var(--mist-pale);padding:8px 0;overflow:hidden;white-space:nowrap}
+.t-inner{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;animation:scroll 40s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SHARED ── */
+.section{padding:64px 28px}
+.section-sm{padding:40px 28px}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;display:block}
+.eyebrow.navy{color:var(--mist-deep)}
+.section-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px;color:var(--navy)}
+.section-sub{font-size:13px;color:var(--smoke);max-width:520px;line-height:1.75;margin-bottom:32px}
+.label{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:20px;display:inline-block}
+.label.sage{background:var(--sage-pale);color:var(--moss)}
+.label.mist{background:var(--mist-pale);color:var(--mist-deep)}
+.label.navy{background:var(--navy);color:var(--white)}
+.label.cream{background:var(--sourdough);color:var(--smoke)}
+.btn{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:10px 22px;border-radius:24px;cursor:pointer;transition:.2s;border:none;display:inline-block}
+.btn-navy{background:var(--navy);color:var(--white)}.btn-navy:hover{background:var(--navy-soft)}
+.btn-sage{background:var(--sage);color:var(--white)}.btn-sage:hover{background:var(--moss)}
+.btn-outline{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}.btn-outline:hover{background:var(--navy);color:var(--white)}
+
+/* ── IMG PLACEHOLDERS ── */
+.img-ph{border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;cursor:pointer;position:relative;overflow:hidden;transition:.2s}
+.img-ph:hover{opacity:.9}
+.img-ph .ph-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:18px}
+.img-ph .ph-text{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.img-ph.on-light .ph-icon{background:rgba(0,0,0,.08)}
+.img-ph.on-light .ph-text{color:var(--smoke)}
+
+/* ── COVER ── */
+.cover{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;border-bottom:1px solid var(--sourdough)}
+@media(max-width:700px){.cover{grid-template-columns:1fr;min-height:auto}}
+.cover-left{padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--cream)}
+.cover-right{background:var(--sage-mist);position:relative;overflow:hidden}
+.cover-right .big-img{width:100%;height:100%;min-height:400px;object-fit:cover}
+.cover-eyebrow{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);margin-bottom:20px}
+.cover-name{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,72px);font-weight:900;line-height:.95;letter-spacing:-.04em;color:var(--navy);margin-bottom:24px}
+.cover-name em{color:var(--sage);font-style:normal}
+.cover-intro{font-size:15px;color:var(--smoke);line-height:1.8;max-width:460px;margin-bottom:32px}
+.cover-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.cover-btns{display:flex;gap:12px;flex-wrap:wrap}
+.cover-deco{position:absolute;bottom:-20px;right:-20px;width:200px;height:200px;border-radius:50%;background:var(--eucalyptus);opacity:.2}
+.cover-deco2{position:absolute;top:40px;left:40px;width:120px;height:120px;border-radius:50%;background:var(--mist);opacity:.25}
+
+/* ── EXPLORE CARDS ── */
+.explore-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.explore-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.explore-grid{grid-template-columns:1fr 1fr}}
+.exp-card{border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.25s}
+.exp-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(28,43,58,.12)}
+.exp-card-img{height:140px;display:flex;align-items:flex-end;padding:14px;position:relative}
+.exp-card-body{padding:14px 16px 18px;background:var(--white)}
+.exp-card-icon{font-size:28px;position:absolute;top:14px;right:14px;opacity:.6}
+.exp-card h3{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.exp-card p{font-size:11px;color:var(--smoke);line-height:1.6}
+
+/* ── MOODBOARD ── */
+.moodboard{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:12px}
+@media(max-width:640px){.moodboard{grid-template-columns:1fr 1fr}}
+.mb-item{border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.2s}
+.mb-item:hover{transform:scale(1.02)}
+.mb-item.tall{grid-row:span 2}
+.mb-item.wide{grid-column:span 2}
+.mb-img{width:100%;height:100%;min-height:160px;display:flex;align-items:flex-end;padding:14px;position:relative}
+.mb-img.sq{min-height:220px}
+.mb-cap{position:relative;z-index:1;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+
+/* ── MASONRY ── */
+.masonry{columns:3;column-gap:12px;padding:4px}
+@media(max-width:700px){.masonry{columns:2}}
+.mason{break-inside:avoid;margin-bottom:12px;cursor:pointer}
+.mason-inner{border-radius:var(--r);overflow:hidden;background:var(--white);border:1px solid var(--sourdough);transition:.2s}
+.mason:hover .mason-inner{transform:translateY(-3px);box-shadow:0 8px 24px rgba(28,43,58,.1)}
+.mason-img{width:100%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;border-radius:var(--r) var(--r) 0 0;position:relative;overflow:hidden}
+.mason-cap{padding:12px 14px}
+.mason-cat{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:4px}
+.mason-title{font-size:12px;color:var(--ink);line-height:1.45}
+
+/* ── OPINIONS ── */
+.opinions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:800px){.opinions-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.opinions-grid{grid-template-columns:1fr}}
+.op-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);cursor:pointer;transition:.2s}
+.op-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(28,43,58,.1)}
+.op-img{height:180px;display:flex;align-items:flex-end;padding:14px}
+.op-body{padding:18px}
+.op-date{font-size:10px;color:var(--muted);margin-bottom:8px}
+.op-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--navy);line-height:1.25;margin-bottom:8px}
+.op-teaser{font-size:12px;color:var(--smoke);line-height:1.65;margin-bottom:14px}
+.op-tags{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── RESEARCH ── */
+.research-block{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center}
+@media(max-width:700px){.research-block{grid-template-columns:1fr}}
+.res-stat{background:var(--white);border-radius:var(--r);padding:20px;border:1px solid var(--sourdough);margin-bottom:12px}
+.res-stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--navy);line-height:1}
+.res-stat-label{font-size:10px;color:var(--smoke);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.nb-entry{border-left:2.5px solid var(--eucalyptus);padding:12px 16px;background:rgba(143,181,160,.07);border-radius:0 var(--r-sm) var(--r-sm) 0;margin-bottom:10px}
+.nb-d{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.nb-h{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.nb-b{font-size:11px;color:var(--smoke);line-height:1.65}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:640px){.proj-grid{grid-template-columns:1fr}}
+.proj-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);cursor:pointer;transition:.2s}
+.proj-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(28,43,58,.1)}
+.proj-img{height:200px;display:flex;align-items:flex-end;padding:16px}
+.proj-body{padding:20px}
+.proj-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.proj-summary{font-size:12px;color:var(--smoke);line-height:1.7;margin-bottom:14px}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── WORK SPREADS ── */
+.work-item{display:grid;grid-template-columns:280px 1fr;gap:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);margin-bottom:20px;background:var(--white)}
+@media(max-width:700px){.work-item{grid-template-columns:1fr}}
+.work-img{min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.work-content{padding:28px}
+.work-role{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);margin-bottom:6px}
+.work-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:6px}
+.work-org{font-size:12px;color:var(--sage);font-weight:500;margin-bottom:14px}
+.work-summary{font-size:12px;color:var(--smoke);line-height:1.8;margin-bottom:16px}
+.work-ach{font-size:11px;color:var(--ink);line-height:1.7;padding-left:14px;border-left:2px solid var(--sage-pale);margin-bottom:8px}
+
+/* ── ABOUT PAGE ── */
+.about-hero{display:grid;grid-template-columns:1fr 1fr;min-height:60vh;border-bottom:1px solid var(--sourdough)}
+@media(max-width:700px){.about-hero{grid-template-columns:1fr}}
+.ab-left{padding:56px 48px;background:var(--navy);display:flex;flex-direction:column;justify-content:center}
+.ab-right{background:var(--sage-mist);position:relative;overflow:hidden;min-height:300px}
+.about-content{max-width:680px;margin:0 auto;padding:56px 28px}
+.about-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;font-weight:400;line-height:1.4;color:var(--navy);border-left:3px solid var(--sage);padding-left:20px;margin:32px 0}
+.about-body{font-size:13.5px;line-height:1.95;color:var(--ink);margin-bottom:20px}
+.about-img-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0}
+
+/* ── INTERACT ── */
+.interact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:640px){.interact-grid{grid-template-columns:1fr}}
+.int-card{background:var(--white);border-radius:var(--r);padding:28px;border:1px solid var(--sourdough)}
+.int-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.int-sub{font-size:12px;color:var(--smoke);line-height:1.7;margin-bottom:20px}
+.int-input,.int-ta{width:100%;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:300;padding:11px 14px;border:1.5px solid var(--sourdough);background:var(--cream);color:var(--ink);border-radius:var(--r-sm);outline:none;margin-bottom:10px;transition:.2s}
+.int-input:focus,.int-ta:focus{border-color:var(--sage)}
+.int-ta{height:84px;resize:none}
+.poll-opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--sourdough);border-radius:var(--r-sm);margin-bottom:8px;cursor:pointer;font-size:12px;transition:.2s;background:var(--cream)}
+.poll-opt:hover{border-color:var(--sage);background:var(--sage-mist)}
+.poll-opt.voted{border-color:var(--sage);background:var(--sage-pale)}
+.p-pct{font-size:10px;color:var(--smoke);min-width:32px;text-align:right;margin-left:auto}
+.ty-msg{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--sage);padding:10px 0}
+.qa-item{padding:22px 0;border-bottom:1px solid var(--sourdough)}
+.qa-q{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--navy);margin-bottom:8px}
+.qa-a{font-size:12px;color:var(--smoke);line-height:1.8}
+.qa-attr{font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:.08em}
+
+/* ── FULL OPINIONS PAGE ── */
+.op-full-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);margin-bottom:20px}
+.op-full-img{height:240px;display:flex;align-items:flex-end;padding:20px}
+.op-full-body{padding:28px}
+.op-full-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:10px}
+.op-full-meta{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.op-full-excerpt{font-size:13px;color:var(--smoke);line-height:1.85;margin-bottom:16px}
+.op-full-ph{background:var(--plaster);border-radius:var(--r-sm);padding:16px;border:1.5px dashed var(--sourdough);font-style:italic;font-size:12px;color:var(--muted)}
+
+/* ── FULL AESTHETICS PAGE ── */
+.aes-filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.aes-filter-bar .btn{padding:7px 16px;font-size:10px}
+
+/* ── FOOTER ── */
+.footer{background:var(--navy);padding:48px 28px 36px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+@media(max-width:640px){.footer-grid{grid-template-columns:1fr}}
+.footer-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--white);margin-bottom:10px}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,.45);line-height:1.7}
+.footer-col-title{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-light);margin-bottom:14px}
+.footer-link{display:block;font-size:12px;color:rgba(255,255,255,.55);margin-bottom:8px;cursor:pointer;transition:.15s;background:none;border:none;text-align:left;padding:0}
+.footer-link:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.08em}
+
+/* ── STRIPE ── */
+.stripe{height:6px;background:linear-gradient(90deg,var(--sage),var(--eucalyptus),var(--mist),var(--mist-deep),var(--navy))}
+</style>
+</head>
+<body>
+
+<!-- COLOR STRIPE -->
+<div class="stripe"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="logo" onclick="go('home')">Chelsy<span>.</span></span>
+  <div class="nav-links">
+    <button class="nl on" id="n-home" onclick="go('home')">Home</button>
+    <button class="nl" id="n-about" onclick="go('about')">About</button>
+    <button class="nl" id="n-opinions" onclick="go('opinions')">Opinions</button>
+    <button class="nl" id="n-research" onclick="go('research')">Research</button>
+    <button class="nl" id="n-aesthetics" onclick="go('aesthetics')">Aesthetics</button>
+    <button class="nl" id="n-work" onclick="go('work')">Work</button>
+    <button class="nl" id="n-interact" onclick="go('interact')">Interact</button>
+  </div>
+  <button class="nav-pill" onclick="go('interact')">Say hello</button>
+</nav>
+
+<!-- TICKER -->
+<div class="ticker"><span class="t-inner">Fashion Intelligence &nbsp;·&nbsp; Business Analytics &nbsp;·&nbsp; Consumer Behavior &nbsp;·&nbsp; Financial Research &nbsp;·&nbsp; Digital Culture &nbsp;·&nbsp; AI &amp; Trend Forecasting &nbsp;·&nbsp; Strategy &nbsp;·&nbsp; Aesthetics &nbsp;·&nbsp; &nbsp;&nbsp;&nbsp; Fashion Intelligence &nbsp;·&nbsp; Business Analytics &nbsp;·&nbsp; Consumer Behavior &nbsp;·&nbsp; Financial Research &nbsp;·&nbsp; Digital Culture &nbsp;·&nbsp; AI &amp; Trend Forecasting &nbsp;·&nbsp; Strategy &nbsp;·&nbsp; Aesthetics &nbsp;·&nbsp;</span></div>
+
+
+<!-- ████████ HOME ████████ -->
+<div id="p-home" class="pg on">
+
+  <!-- 1 · COVER -->
+  <div class="cover">
+    <div class="cover-left">
+      <span class="cover-eyebrow">Digital Magazine &nbsp;·&nbsp; Est. 2026</span>
+      <h1 class="cover-name">Chelsy<br><em>Shah</em></h1>
+      <p class="cover-intro">Business Analytics &amp; Finance student at Rutgers, exploring the intersection of <strong>fashion, data, consumer behavior, and strategy</strong> — documenting it all in one place.</p>
+      <div class="cover-tags">
+        <span class="label sage">Fashion Intelligence</span>
+        <span class="label mist">Business Analytics</span>
+        <span class="label cream">Finance</span>
+        <span class="label sage">Consumer Behavior</span>
+        <span class="label cream">Strategy</span>
+      </div>
+      <div class="cover-btns">
+        <button class="btn btn-navy" onclick="go('about')">Read my story</button>
+        <button class="btn btn-outline" onclick="go('research')">Latest research</button>
+      </div>
+    </div>
+    <div class="cover-right">
+      <div class="img-ph" style="width:100%;height:100%;min-height:500px;background:var(--sage-mist)">
+        <div class="cover-deco"></div>
+        <div class="cover-deco2"></div>
+        <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px">
+          <div class="ph-icon" style="background:rgba(125,155,118,.2)">＋</div>
+          <span class="ph-text" style="color:var(--sage)">Add cover photo</span>
+          <span style="font-size:10px;color:var(--sage-light)">Recommended: editorial portrait</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 · WHAT I EXPLORE -->
+  <div class="section" style="background:var(--plaster)">
+    <span class="eyebrow">What I explore</span>
+    <h2 class="section-title">The intersections that fascinate me</h2>
+    <div class="explore-grid">
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--sage-mist)">
+          <span class="exp-card-icon">🌿</span>
+          <span class="label sage" style="position:relative;z-index:1">Fashion</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Fashion Intelligence</h3>
+          <p>How aesthetics predict markets. Trend signals as financial data.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--mist-pale)">
+          <span class="exp-card-icon">📊</span>
+          <span class="label mist" style="position:relative;z-index:1">Analytics</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Business Analytics</h3>
+          <p>Forecasting, data modeling, and the stories numbers tell.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--sourdough)">
+          <span class="exp-card-icon">💰</span>
+          <span class="label cream" style="position:relative;z-index:1">Finance</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Finance</h3>
+          <p>Equity markets, investor behavior, capital allocation and risk.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--sage-pale)">
+          <span class="exp-card-icon">🧠</span>
+          <span class="label sage" style="position:relative;z-index:1">Consumer</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Consumer Behavior</h3>
+          <p>Why people buy, what they signal, how culture drives spending.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--mist-pale)">
+          <span class="exp-card-icon">♟</span>
+          <span class="label mist" style="position:relative;z-index:1">Strategy</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Strategy</h3>
+          <p>Business models, competitive positioning, and market thinking.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--sourdough)">
+          <span class="exp-card-icon">💻</span>
+          <span class="label cream" style="position:relative;z-index:1">Digital</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Digital Culture</h3>
+          <p>How platforms, algorithms, and online aesthetics shape the world.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--sage-mist)">
+          <span class="exp-card-icon">🤖</span>
+          <span class="label sage" style="position:relative;z-index:1">AI</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>AI &amp; Technology</h3>
+          <p>Artificial intelligence in fashion, finance, and beyond.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:var(--mist-pale)">
+          <span class="exp-card-icon">🎨</span>
+          <span class="label mist" style="position:relative;z-index:1">Aesthetics</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Aesthetics</h3>
+          <p>The visual world — moodboards, fashion, travel, design, beauty.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 · FEATURED MOODBOARD -->
+  <div class="section" style="background:var(--cream)">
+    <span class="eyebrow">Visual Archive</span>
+    <h2 class="section-title">Featured Moodboard</h2>
+    <p class="section-sub">A living visual collection — fashion, travel, architecture, texture, and the images that inspire the work.</p>
+    <div class="moodboard">
+      <div class="mb-item tall" style="grid-row:span 2">
+        <div class="mb-img sq img-ph" style="background:var(--sage-pale);height:100%;min-height:340px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:100%">
+            <div class="ph-icon on-light">＋</div>
+            <span class="ph-text" style="color:var(--smoke)">Add tall image</span>
+          </div>
+          <span class="mb-cap" style="position:absolute;bottom:14px;left:14px;color:var(--moss)">Fashion</span>
+        </div>
+      </div>
+      <div class="mb-item">
+        <div class="mb-img img-ph" style="background:var(--mist-pale);min-height:180px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:180px">
+            <div class="ph-icon on-light">＋</div>
+            <span class="ph-text" style="color:var(--mist-deep)">Add image</span>
+          </div>
+          <span class="mb-cap" style="color:var(--mist-deep)">Moodboard</span>
+        </div>
+      </div>
+      <div class="mb-item">
+        <div class="mb-img img-ph" style="background:var(--sourdough);min-height:180px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:180px">
+            <div class="ph-icon on-light">＋</div>
+            <span class="ph-text" style="color:var(--smoke)">Add image</span>
+          </div>
+          <span class="mb-cap" style="color:var(--smoke)">Travel</span>
+        </div>
+      </div>
+      <div class="mb-item wide" style="grid-column:span 2">
+        <div class="mb-img img-ph" style="background:var(--navy);min-height:160px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:160px">
+            <div class="ph-icon">＋</div>
+            <span class="ph-text">Add wide image or quote</span>
+          </div>
+          <span class="mb-cap" style="color:rgba(255,255,255,.5)">Inspiration</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <button class="btn btn-sage" onclick="go('aesthetics')">View full archive →</button>
+    </div>
+  </div>
+
+  <!-- 4 · LATEST OPINIONS -->
+  <div class="section" style="background:var(--plaster)">
+    <span class="eyebrow">Latest</span>
+    <h2 class="section-title">Opinions</h2>
+    <p class="section-sub">Fashion, business, consumer culture, and strategy — things I'm thinking about and writing through.</p>
+    <div class="opinions-grid">
+      <div class="op-card">
+        <div class="op-img img-ph" style="background:var(--sage-mist)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:180px">
+            <div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add cover image</span>
+          </div>
+          <span class="label sage" style="position:absolute;bottom:12px;left:12px">Opinion Title Here</span>
+        </div>
+        <div class="op-body">
+          <div class="op-date">Date · Category</div>
+          <div class="op-title">Opinion Title Here</div>
+          <div class="op-teaser">Write your opening thought here. This is where your introduction or excerpt goes.</div>
+          <div class="op-tags"><span class="label cream">Tag</span><span class="label cream">Tag</span></div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background:var(--mist-pale)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:180px">
+            <div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add cover image</span>
+          </div>
+          <span class="label mist" style="position:absolute;bottom:12px;left:12px">Opinion Title Here</span>
+        </div>
+        <div class="op-body">
+          <div class="op-date">Date · Category</div>
+          <div class="op-title">Opinion Title Here</div>
+          <div class="op-teaser">Write your opening thought here. This is where your introduction or excerpt goes.</div>
+          <div class="op-tags"><span class="label cream">Tag</span><span class="label cream">Tag</span></div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background:var(--sourdough)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:180px">
+            <div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Add cover image</span>
+          </div>
+          <span class="label cream" style="position:absolute;bottom:12px;left:12px">Opinion Title Here</span>
+        </div>
+        <div class="op-body">
+          <div class="op-date">Date · Category</div>
+          <div class="op-title">Opinion Title Here</div>
+          <div class="op-teaser">Write your opening thought here. This is where your introduction or excerpt goes.</div>
+          <div class="op-tags"><span class="label cream">Tag</span><span class="label cream">Tag</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <button class="btn btn-outline" onclick="go('opinions')">All opinions →</button>
+    </div>
+  </div>
+
+  <!-- 5 · RESEARCH -->
+  <div class="section" style="background:var(--navy)">
+    <span class="eyebrow" style="color:var(--eucalyptus)">Current Research</span>
+    <h2 class="section-title" style="color:var(--white)">Modeling Fashion Trend Shocks &amp; Their Financial Impact Using AI</h2>
+    <div class="research-block">
+      <div>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px">Investigating how AI-detected fashion trend signals — from social media attention, search volume, and cultural indicators — create measurable downstream effects on brand equity and equity market performance.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px">
+          <div class="res-stat"><div class="res-stat-num" style="color:var(--sage-light)">2</div><div class="res-stat-label" style="color:rgba(255,255,255,.4)">Active studies</div></div>
+          <div class="res-stat" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)"><div class="res-stat-num" style="color:var(--mist)">4</div><div class="res-stat-label" style="color:rgba(255,255,255,.4)">Ideas queued</div></div>
+          <div class="res-stat" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)"><div class="res-stat-num" style="color:var(--eucalyptus)">18d</div><div class="res-stat-label" style="color:rgba(255,255,255,.4)">Avg trend lag</div></div>
+        </div>
+        <button class="btn btn-sage" onclick="go('research')">View notebook →</button>
+      </div>
+      <div>
+        <div class="nb-entry" style="border-color:var(--eucalyptus);background:rgba(143,181,160,.1)"><div class="nb-d" style="color:rgba(255,255,255,.3)">June 2026</div><div class="nb-h" style="color:var(--white)">Zara drop → Google Trends spike → 3-week lag to consumer spend</div><div class="nb-b" style="color:rgba(255,255,255,.5)">Consistent 18–23 day lag across 4 brands. Building the dataset.</div></div>
+        <div class="nb-entry" style="border-color:var(--mist-deep);background:rgba(127,168,184,.08)"><div class="nb-d" style="color:rgba(255,255,255,.3)">May 2026</div><div class="nb-h" style="color:var(--white)">"Quiet luxury" TikTok spike predates LVMH earnings beat ~3 weeks</div><div class="nb-b" style="color:rgba(255,255,255,.5)">Need to control for macro before claiming causation.</div></div>
+        <div class="nb-entry" style="border-color:var(--sage-light);background:rgba(125,155,118,.08)"><div class="nb-d" style="color:rgba(255,255,255,.3)">April 2026</div><div class="nb-h" style="color:var(--white)">Signal-to-sale lag: footwear longest, accessories fastest</div><div class="nb-b" style="color:rgba(255,255,255,.5)">14–28 day range by category. Investigating the mechanism.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 · PROJECTS -->
+  <div class="section" style="background:var(--cream)">
+    <span class="eyebrow">Selected Work</span>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Research, financial models, strategic frameworks — things I've built and studied.</p>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="proj-img img-ph" style="background:var(--sage-mist)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:200px">
+            <div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add project image</span>
+          </div>
+          <span class="label sage" style="position:relative;z-index:1">Research + Strategy</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Fashion Intelligence &amp; Commercialization Report</div>
+          <div class="proj-summary">Consumer behavior, product innovation, market expansion, and trend commercialization for fashion and lifestyle brands. Data-informed frameworks for demand forecasting.</div>
+          <div class="proj-tags"><span class="label sage">Fashion</span><span class="label mist">Consumer Behavior</span><span class="label cream">Strategy</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img img-ph" style="background:var(--mist-pale)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:200px">
+            <div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add project image</span>
+          </div>
+          <span class="label mist" style="position:relative;z-index:1">Finance + Analytics</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">ROI Forecasting &amp; Capital Efficiency Model</div>
+          <div class="proj-summary">Excel-based ROI forecasting model analyzing capital allocation across multiple initiatives. Identified 12% potential cost savings and improved return projections by 18%.</div>
+          <div class="proj-tags"><span class="label mist">Excel</span><span class="label cream">ROI</span><span class="label cream">Financial Modeling</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img img-ph" style="background:var(--sourdough)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:200px">
+            <div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Add project image</span>
+          </div>
+          <span class="label cream" style="position:relative;z-index:1">Policy + Research</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">AI Policy Analysis</div>
+          <div class="proj-summary">Research examining whether the pace of AI adoption should be slowed. Analyzed economic, ethical, and social implications drawing on Brookings and peer policy reports.</div>
+          <div class="proj-tags"><span class="label cream">AI</span><span class="label cream">Policy</span><span class="label mist">Research</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-img img-ph" style="background:var(--sage-pale)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:200px">
+            <div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--moss)">Add project image</span>
+          </div>
+          <span class="label sage" style="position:relative;z-index:1">Entrepreneurship</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Study Café — Business Model &amp; CVP Analysis</div>
+          <div class="proj-summary">Complete business model with market research, competitor analysis, 3-year cash flow plan, and CVP analysis. Full pitch deck with value proposition and risk analysis.</div>
+          <div class="proj-tags"><span class="label sage">Business Planning</span><span class="label cream">CVP</span><span class="label cream">Strategy</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 · AESTHETICS PREVIEW -->
+  <div class="section" style="background:var(--plaster)">
+    <span class="eyebrow">Visual Archive</span>
+    <h2 class="section-title">Aesthetics</h2>
+    <p class="section-sub">Fashion, travel, moodboards, lifestyle — the visual world that shapes how I see everything else.</p>
+    <div class="masonry">
+      <div class="mason"><div class="mason-inner"><div class="mason-img img-ph" style="height:190px;background:var(--sage-mist)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:190px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Fashion</div><div class="mason-title">Add caption here</div></div></div></div>
+      <div class="mason"><div class="mason-inner"><div class="mason-img img-ph" style="height:130px;background:var(--mist-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:130px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Travel</div><div class="mason-title">Add caption here</div></div></div></div>
+      <div class="mason"><div class="mason-inner"><div class="mason-img img-ph" style="height:160px;background:var(--sourdough)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:160px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Moodboard</div><div class="mason-title">Add caption here</div></div></div></div>
+      <div class="mason"><div class="mason-inner"><div class="mason-img img-ph" style="height:210px;background:var(--sage-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:210px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--moss)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Architecture</div><div class="mason-title">Add caption here</div></div></div></div>
+      <div class="mason"><div class="mason-inner"><div class="mason-img img-ph" style="height:150px;background:var(--mist-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:150px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Lifestyle</div><div class="mason-title">Add caption here</div></div></div></div>
+      <div class="mason"><div class="mason-inner"><div class="mason-img img-ph" style="height:175px;background:var(--sage-mist)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:175px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Fashion</div><div class="mason-title">Add caption here</div></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <button class="btn btn-sage" onclick="go('aesthetics')">View full archive →</button>
+    </div>
+  </div>
+
+  <!-- 8 · INTERACT -->
+  <div class="section" style="background:var(--cream)">
+    <span class="eyebrow">Interaction Corner</span>
+    <h2 class="section-title">Let's talk</h2>
+    <p class="section-sub">Questions, topic ideas, polls, comments — this is the part that talks back.</p>
+    <div class="interact-grid">
+      <div class="int-card">
+        <div class="int-title">Ask me anything</div>
+        <div class="int-sub">Curious about career, research, opinions, or analytics? I answer selected questions publicly.</div>
+        <div id="hqf">
+          <textarea class="int-ta" id="hqi" placeholder="Your question..."></textarea>
+          <button class="btn btn-navy" onclick="send('hqi','hqf','hqt')" style="width:100%">Send question →</button>
+        </div>
+        <div id="hqt" class="ty-msg" style="display:none">Received — thank you.</div>
+      </div>
+      <div class="int-card">
+        <div class="int-title">Vote: what should I research next?</div>
+        <div class="int-sub">Help me prioritize what I investigate next.</div>
+        <div id="ph">
+          <div class="poll-opt" onclick="vt(this,'ph')">Economics of aesthetic trends<span style="flex:1"></span><span class="p-pct">38%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">AI in fashion forecasting<span style="flex:1"></span><span class="p-pct">29%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">Consumer psychology &amp; luxury<span style="flex:1"></span><span class="p-pct">19%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">ESG vs. trend capital<span style="flex:1"></span><span class="p-pct">14%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-grid">
+      <div><div class="footer-name">Chelsy<span style="color:var(--sage)">.</span></div><div class="footer-tagline">Business Analytics &amp; Finance student at Rutgers, exploring the intersection of fashion, data, consumer behavior, and strategy.</div></div>
+      <div><div class="footer-col-title">Navigate</div><button class="footer-link" onclick="go('about')">About</button><button class="footer-link" onclick="go('opinions')">Opinions</button><button class="footer-link" onclick="go('research')">Research</button><button class="footer-link" onclick="go('aesthetics')">Aesthetics</button></div>
+      <div><div class="footer-col-title">Connect</div><button class="footer-link" onclick="go('work')">Work</button><button class="footer-link" onclick="go('interact')">Reader Mail</button><button class="footer-link">shahchelsy@gmail.com</button><button class="footer-link">LinkedIn ↗</button></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah. All rights reserved.</span><span class="footer-copy">Rutgers University · Class of 2027</span></div>
+  </div>
+</div><!-- /home -->
+
+
+<!-- ████████ ABOUT ████████ -->
+<div id="p-about" class="pg">
+  <div class="about-hero">
+    <div class="ab-left">
+      <span class="eyebrow" style="color:var(--eucalyptus)">Profile</span>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,64px);font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin:12px 0 20px">Chelsy<br><em style="color:var(--sage-light);font-style:normal">Shah</em></h1>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);line-height:2">Business Analytics &amp; Finance<br>Rutgers University · Class of 2027<br>GPA 3.65 · New Brunswick, NJ</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+        <span class="label" style="background:rgba(125,155,118,.2);color:var(--sage-light)">Fashion Intelligence</span>
+        <span class="label" style="background:rgba(184,205,214,.15);color:var(--mist)">Business Analytics</span>
+        <span class="label" style="background:rgba(143,181,160,.15);color:var(--eucalyptus)">Finance</span>
+      </div>
+    </div>
+    <div class="ab-right">
+      <div class="img-ph" style="width:100%;height:100%;min-height:400px;background:var(--sage-mist)">
+        <div class="ph-icon on-light">＋</div>
+        <span class="ph-text" style="color:var(--sage)">Add your photo</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-content">
+    <p class="about-body" style="font-size:15px;font-family:'Playfair Display',serif;font-style:italic;color:var(--navy);margin-bottom:28px">I'm Chelsy — a Business Analytics &amp; Finance student at Rutgers exploring the intersection of fashion, data, and strategy.</p>
+    <div class="about-quote">"I believe data has aesthetics, numbers tell stories, and the most interesting work happens at the seams where disciplines meet."</div>
+    <p class="about-body">Write your story here. Tell readers who you are, what drives you, and what this magazine is about. Keep it warm, human, and honest.</p>
+    <div class="about-img-row">
+      <div class="img-ph on-light" style="height:200px;background:var(--sage-mist);border-radius:var(--r)"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add image</span></div>
+      <div class="img-ph on-light" style="height:200px;background:var(--mist-pale);border-radius:var(--r)"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add image</span></div>
+    </div>
+    <p class="about-body">Add more about your background, education, interests, and what you're working on. This section should feel like a conversation, not a resume.</p>
+    <div style="margin-top:32px;padding:24px;background:var(--sage-mist);border-radius:var(--r)">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Education</div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:4px">Rutgers, State University of New Jersey</div>
+      <div style="font-size:12px;color:var(--smoke)">B.S. Business Analytics &amp; IT, Finance · GPA 3.65 · Expected May 2027</div>
+    </div>
+    <div style="margin-top:32px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Skills</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span class="label sage">Python</span><span class="label sage">SQL</span><span class="label sage">R</span><span class="label mist">Tableau</span><span class="label mist">Excel</span><span class="label mist">AI Tools</span><span class="label cream">Forecasting</span><span class="label cream">Financial Modeling</span><span class="label cream">Leadership</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div>
+  </div>
+</div>
+
+
+<!-- ████████ OPINIONS ████████ -->
+<div id="p-opinions" class="pg">
+  <div style="background:var(--navy);padding:60px 28px 48px">
+    <span class="eyebrow" style="color:var(--eucalyptus)">Opinions · Column</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin:12px 0 16px">Things I<br><em style="color:var(--sage-light);font-style:normal">Actually Think</em></h1>
+    <p style="font-size:13px;color:rgba(255,255,255,.5);max-width:500px;line-height:1.75">Fashion. Business. Consumer culture. Strategy. Digital world. Add your posts here — write your own titles, thoughts, and ideas.</p>
+  </div>
+  <div style="padding:40px 28px;background:var(--plaster)">
+    <div class="opinions-grid">
+      <div class="op-card">
+        <div class="op-img img-ph" style="background:var(--sage-mist);height:200px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:200px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add cover image</span></div>
+        </div>
+        <div class="op-body">
+          <div class="op-date">Add date · Add category</div>
+          <div class="op-title">Opinion Title Here</div>
+          <div class="op-full-ph">Write your opening paragraph or excerpt here. This is your space.</div>
+          <div class="op-tags" style="margin-top:14px"><span class="label cream">Add Tag</span></div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background:var(--mist-pale);height:200px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:200px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add cover image</span></div>
+        </div>
+        <div class="op-body">
+          <div class="op-date">Add date · Add category</div>
+          <div class="op-title">Opinion Title Here</div>
+          <div class="op-full-ph">Write your opening paragraph or excerpt here. This is your space.</div>
+          <div class="op-tags" style="margin-top:14px"><span class="label cream">Add Tag</span></div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background:var(--sourdough);height:200px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:200px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Add cover image</span></div>
+        </div>
+        <div class="op-body">
+          <div class="op-date">Add date · Add category</div>
+          <div class="op-title">Opinion Title Here</div>
+          <div class="op-full-ph">Write your opening paragraph or excerpt here. This is your space.</div>
+          <div class="op-tags" style="margin-top:14px"><span class="label cream">Add Tag</span></div>
+        </div>
+      </div>
+      <div class="op-card" style="border:2px dashed var(--sourdough);background:transparent;display:flex;align-items:center;justify-content:center;min-height:300px;cursor:pointer" onclick="">
+        <div style="text-align:center">
+          <div style="width:48px;height:48px;border-radius:50%;background:var(--sage-pale);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 12px">＋</div>
+          <div style="font-size:12px;color:var(--sage);font-weight:500">Add new opinion</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:4px">via CMS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="padding:0 28px 28px;background:var(--plaster)">
+    <div style="background:var(--sage-mist);border-radius:var(--r);padding:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;margin-bottom:6px">Suggest a topic</div><div style="font-size:12px;color:var(--smoke)">What should I write about next?</div></div>
+      <div style="display:flex;gap:10px;flex:1;max-width:420px">
+        <input class="int-input" style="margin:0;flex:1" id="ot" placeholder="Your topic idea...">
+        <button class="btn btn-sage" onclick="qs('ot','otty')">Send →</button>
+      </div>
+      <div id="otty" class="ty-msg" style="display:none;width:100%">Noted — thank you!</div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+
+<!-- ████████ RESEARCH ████████ -->
+<div id="p-research" class="pg">
+  <div style="background:var(--cream);padding:60px 28px 48px;border-bottom:1px solid var(--sourdough)">
+    <span class="eyebrow">Living Notebook</span>
+    <h1 class="section-title" style="font-size:52px">Research</h1>
+    <p class="section-sub">Not a PDF graveyard. A living investigation — updated as observations accumulate, ideas evolve, and the data gets interesting.</p>
+  </div>
+  <div style="padding:48px 28px;background:var(--plaster)">
+    <div class="research-block" style="margin-bottom:48px">
+      <div>
+        <span class="label navy" style="margin-bottom:16px;display:inline-block">Ongoing · 2026</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:10px">Fashion Trend Shocks &amp; Financial Market Behavior</h2>
+        <p style="font-size:12px;font-style:italic;color:var(--smoke);margin-bottom:20px">How AI-detected signals predict brand performance and investor response</p>
+        <p style="font-size:13px;color:var(--smoke);line-height:1.85;margin-bottom:20px">Investigating the relationship between emerging fashion trend signals and their downstream effects on brand equity, consumer demand, and equity market performance.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px">
+          <div class="res-stat"><div class="res-stat-num">2</div><div class="res-stat-label">Active studies</div></div>
+          <div class="res-stat"><div class="res-stat-num">18d</div><div class="res-stat-label">Avg trend lag</div></div>
+          <div class="res-stat"><div class="res-stat-num">4+</div><div class="res-stat-label">Brands tracked</div></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span class="label sage">Time Series</span><span class="label mist">AI</span><span class="label cream">Fashion</span><span class="label cream">Equity Markets</span><span class="label sage">Consumer Behavior</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Field Notes</div>
+        <div class="nb-entry"><div class="nb-d">June 2026</div><div class="nb-h">Zara drop → Google Trends spike → 3-week lag to consumer spend</div><div class="nb-b">Consistent 18–23 day lag across 4 brands. Building the dataset now.</div></div>
+        <div class="nb-entry"><div class="nb-d">May 2026</div><div class="nb-h">"Quiet luxury" TikTok spike predates LVMH earnings beat ~3 weeks</div><div class="nb-b">Correlation or causation? Controlling for macro next.</div></div>
+        <div class="nb-entry"><div class="nb-d">April 2026</div><div class="nb-h">Signal-to-sale lag: footwear longest (28d), accessories fastest (14d)</div><div class="nb-b">Category-level variation is consistent. Investigating the mechanism.</div></div>
+        <div class="nb-entry" style="border-color:var(--sourdough);background:transparent;border-style:dashed">
+          <div class="nb-d">Add note</div>
+          <div class="nb-b" style="color:var(--muted)">Add your research notes via CMS — they appear here automatically.</div>
+        </div>
+      </div>
+    </div>
+    <hr style="border:none;border-top:1px solid var(--sourdough);margin-bottom:40px">
+    <div class="research-block" style="margin-bottom:32px">
+      <div>
+        <span class="label cream" style="margin-bottom:16px;display:inline-block">Completed · 2024</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:10px">Equity Markets, Investor Behavior &amp; SEBI</h2>
+        <p style="font-size:12px;font-style:italic;color:var(--smoke);margin-bottom:20px">Indian capital markets and retail investor participation</p>
+        <p style="font-size:13px;color:var(--smoke);line-height:1.85;margin-bottom:20px">Designed and analyzed investor behavior surveys across Indian retail investors. Synthesized into a research paper on equity market structure, SEBI regulatory frameworks, and listing requirements.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px"><span class="label mist">SEBI</span><span class="label mist">India</span><span class="label cream">Regulation</span><span class="label cream">Survey Research</span></div>
+      </div>
+      <div>
+        <div class="nb-entry"><div class="nb-d">Key Finding</div><div class="nb-h">Retail investor confidence correlates more with social trust than fundamental analysis</div><div class="nb-b">This surprised me. Suggests financial literacy campaigns may be less effective than building institutional trust signals.</div></div>
+      </div>
+    </div>
+    <div style="background:var(--sage-mist);border-radius:var(--r);padding:28px;margin-top:12px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Ideas on the horizon</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Economics of aesthetic trends</div></div>
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Predictive modeling for brand loyalty</div></div>
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Regulatory risk in AI markets</div></div>
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Data storytelling as strategy</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+
+<!-- ████████ AESTHETICS ████████ -->
+<div id="p-aesthetics" class="pg">
+  <div style="background:var(--cream);padding:60px 28px 40px;border-bottom:1px solid var(--sourdough)">
+    <span class="eyebrow">Visual Archive</span>
+    <h1 class="section-title" style="font-size:52px">Aesthetics</h1>
+    <p class="section-sub">Fashion · Travel · Moodboards · Architecture · Texture · Lifestyle · Inspiration</p>
+    <div class="aes-filter-bar" id="aesf">
+      <button class="btn btn-navy" onclick="fa('all',this)">All</button>
+      <button class="btn btn-outline" onclick="fa('Fashion',this)">Fashion</button>
+      <button class="btn btn-outline" onclick="fa('Travel',this)">Travel</button>
+      <button class="btn btn-outline" onclick="fa('Moodboard',this)">Moodboard</button>
+      <button class="btn btn-outline" onclick="fa('Architecture',this)">Architecture</button>
+      <button class="btn btn-outline" onclick="fa('Lifestyle',this)">Lifestyle</button>
+    </div>
+  </div>
+  <div style="padding:28px;background:var(--plaster)">
+    <div class="masonry" id="aes-grid">
+      <div class="mason" data-cat="Fashion"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:200px;background:var(--sage-mist)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:200px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Fashion</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:140px;background:var(--mist-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:140px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Travel</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Moodboard"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:170px;background:var(--sourdough)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:170px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Add image</span></div></div><div class="mason-cap"><div class="mason-cat">Moodboard</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Architecture"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:220px;background:var(--sage-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:220px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--moss)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Architecture</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Lifestyle"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:160px;background:var(--mist-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:160px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Lifestyle</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Fashion"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:185px;background:var(--sage-mist)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:185px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Fashion</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:150px;background:var(--mist-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:150px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Travel</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Moodboard"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:130px;background:var(--sourdough)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:130px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Add image</span></div></div><div class="mason-cap"><div class="mason-cat">Moodboard</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Lifestyle"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:195px;background:var(--sage-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:195px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--moss)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Lifestyle</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Architecture"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:145px;background:var(--sourdough)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:145px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Architecture</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Fashion"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:210px;background:var(--sage-mist)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:210px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Fashion</div><div class="mason-title">Add caption</div></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:165px;background:var(--mist-pale)"><div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:100%;justify-content:center;height:165px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Add photo</span></div></div><div class="mason-cap"><div class="mason-cat">Travel</div><div class="mason-title">Add caption</div></div></div></div>
+    </div>
+    <div style="text-align:center;margin-top:28px;padding:24px;background:var(--sage-mist);border-radius:var(--r)">
+      <div style="font-size:12px;color:var(--moss);margin-bottom:12px">Connect Sanity CMS to upload photos, videos, and moodboards — they appear here automatically.</div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+
+<!-- ████████ WORK ████████ -->
+<div id="p-work" class="pg">
+  <div style="background:var(--cream);padding:60px 28px 48px;border-bottom:1px solid var(--sourdough)">
+    <span class="eyebrow">Professional</span>
+    <h1 class="section-title" style="font-size:52px">Work</h1>
+    <p class="section-sub">Not a resume — each role is a chapter with its own story, challenges, and lessons.</p>
+  </div>
+  <div style="padding:40px 28px;background:var(--plaster)">
+    <div class="work-item">
+      <div class="work-img img-ph" style="background:var(--navy)">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:100%"><div class="ph-icon">＋</div><span class="ph-text">Add image</span></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(28,43,58,.8))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">Chapter 01 · 2026</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">CorePharma LLC</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">Currently · June 2026 – Present</div>
+        <div class="work-title">Business Analyst Intern</div>
+        <div class="work-org">CorePharma LLC · New Jersey</div>
+        <div class="work-summary">Building intelligence in a regulated world. Forecasting models and analytics tools spanning manufacturing, quality, supply chain, and finance — where every dataset has regulatory implications.</div>
+        <div class="work-ach">Developed data-driven forecasting models improving planning accuracy across Manufacturing, Quality, Supply Chain &amp; Finance.</div>
+        <div class="work-ach">Designed enterprise-wide compliance and process automation systems including a training management platform and audit-ready batch record repository.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label sage">Forecasting</span><span class="label sage">Compliance</span><span class="label mist">Supply Chain</span><span class="label cream">Process Design</span></div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-img img-ph" style="background:var(--moss)">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:100%"><div class="ph-icon">＋</div><span class="ph-text">Add image</span></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(74,103,65,.8))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">Chapter 02 · 2025</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">Rutgers Recreation</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">Currently · Aug 2025 – Present</div>
+        <div class="work-title">Digital Marketing &amp; Brand Manager</div>
+        <div class="work-org">Rutgers Recreation · New Jersey</div>
+        <div class="work-summary">Brand strategy at scale — 10,000 people, one voice, constant data. Running content strategy across all platforms for one of campus's largest communities.</div>
+        <div class="work-ach">Developed multi-platform campaigns driving 25% engagement increase through data-driven storytelling.</div>
+        <div class="work-ach">Optimized content distribution increasing reach by 15%, supporting 30+ campaigns.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label sage">Brand Strategy</span><span class="label mist">Content</span><span class="label cream">Analytics</span><span class="label cream">Digital Marketing</span></div>
+      </div>
+    </div>
+    <div class="work-item">
+      <div class="work-img img-ph" style="background:var(--mist-deep)">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:8px;width:100%;justify-content:center;height:100%"><div class="ph-icon">＋</div><span class="ph-text">Add image</span></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(127,168,184,.7))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">Chapter 03 · 2024</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">Market Creators</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">May – July 2024 · Gujarat, India</div>
+        <div class="work-title">Financial Research Intern</div>
+        <div class="work-org">Market Creators Limited · India</div>
+        <div class="work-summary">Understanding money through the people who invest it. Research on retail investor behavior and the regulatory architecture that shapes Indian capital markets.</div>
+        <div class="work-ach">Designed and analyzed investor behavior surveys assessing risk appetite, investment strategies, and market participation.</div>
+        <div class="work-ach">Synthesized findings into a research paper on equity markets, SEBI regulatory frameworks, and listing requirements.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label mist">Behavioral Finance</span><span class="label mist">SEBI</span><span class="label cream">Research</span><span class="label cream">India</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+
+<!-- ████████ INTERACT ████████ -->
+<div id="p-interact" class="pg">
+  <div style="background:var(--sage);padding:60px 28px 48px">
+    <span class="eyebrow" style="color:rgba(255,255,255,.6)">Interaction Corner</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin:12px 0 16px">Let's<br><em style="font-style:normal">Talk</em></h1>
+    <p style="font-size:13px;color:rgba(255,255,255,.65);max-width:500px;line-height:1.75">Questions, topic suggestions, polls, reader comments — this is the part that's built for conversation.</p>
+  </div>
+  <div style="padding:48px 28px;background:var(--plaster)">
+    <div class="interact-grid" style="margin-bottom:24px">
+      <div class="int-card">
+        <div class="int-title">Ask me anything</div>
+        <div class="int-sub">Curious about career, research, opinions, analytics, or fashion? I answer selected questions publicly here.</div>
+        <div id="qf2">
+          <input class="int-input" id="qn2" placeholder="Your name (optional)">
+          <textarea class="int-ta" id="qb2" placeholder="Your question..."></textarea>
+          <button class="btn btn-navy" onclick="send('qb2','qf2','qt2')" style="width:100%">Send question →</button>
+        </div>
+        <div id="qt2" class="ty-msg" style="display:none">Received — thank you.</div>
+      </div>
+      <div class="int-card">
+        <div class="int-title">What should I research next?</div>
+        <div class="int-sub">Vote to help me prioritize my next investigation.</div>
+        <div id="pi">
+          <div class="poll-opt" onclick="vt(this,'pi')">Economics of aesthetic trends<span style="flex:1"></span><span class="p-pct">38%</span></div>
+          <div class="poll-opt" onclick="vt(this,'pi')">AI in fashion forecasting<span style="flex:1"></span><span class="p-pct">29%</span></div>
+          <div class="poll-opt" onclick="vt(this,'pi')">Consumer psychology &amp; luxury<span style="flex:1"></span><span class="p-pct">19%</span></div>
+          <div class="poll-opt" onclick="vt(this,'pi')">ESG vs. trend capital<span style="flex:1"></span><span class="p-pct">14%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="interact-grid">
+      <div class="int-card">
+        <div class="int-title">Suggest a topic</div>
+        <div class="int-sub">What should I write about in Opinions? Fashion, business, culture, analytics — send your ideas.</div>
+        <div id="tf2">
+          <input class="int-input" id="ti2" placeholder="Your topic suggestion...">
+          <button class="btn btn-sage" onclick="send('ti2','tf2','tt2')" style="width:100%">Submit →</button>
+        </div>
+        <div id="tt2" class="ty-msg" style="display:none">Noted — thank you!</div>
+      </div>
+      <div class="int-card">
+        <div class="int-title">Reader Q&amp;A</div>
+        <div class="int-sub">Previously answered questions.</div>
+        <div class="qa-item">
+          <div class="qa-q">"How do you decide which projects are worth deep-diving on?"</div>
+          <div class="qa-a">Does this have a question I can't answer yet? The dangerous trap is mistaking familiarity for mastery.</div>
+          <div class="qa-attr">Anonymous · Answered June 2026</div>
+        </div>
+        <div class="qa-item" style="border:none;padding-bottom:0">
+          <div class="qa-q">"Do you think fashion takes data seriously?"</div>
+          <div class="qa-a">Both, in fascinating ways. Gut-driven decisions are often implicitly data-driven. The real opportunity is using AI to extend intuition forward.</div>
+          <div class="qa-attr">Anonymous · Answered May 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
+  document.getElementById('p-'+id).classList.add('on');
+  document.querySelectorAll('.nl').forEach(b=>b.classList.remove('on'));
+  const n=document.getElementById('n-'+id);if(n)n.classList.add('on');
+  window.scrollTo(0,0);
+}
+function vt(el,aId){
+  const a=document.getElementById(aId);if(!a||a.dataset.v)return;a.dataset.v='1';
+  a.querySelectorAll('.poll-opt').forEach(o=>{
+    const c=parseInt(o.querySelector('.p-pct').textContent);
+    o.querySelector('.p-pct').textContent=(o===el?Math.min(c+8,56):Math.max(c-2,4))+'%';
+    if(o===el)o.classList.add('voted');
+  });
+}
+function send(inputId,formId,tyId){
+  const v=document.getElementById(inputId).value.trim();if(!v)return;
+  document.getElementById(formId).style.display='none';
+  document.getElementById(tyId).style.display='block';
+}
+function qs(inputId,tyId){
+  const el=document.getElementById(inputId);if(!el||!el.value.trim())return;
+  el.value='';el.placeholder='Noted.';document.getElementById(tyId).style.display='block';
+}
+function fa(cat,btn){
+  document.querySelectorAll('#aes-grid .mason').forEach(m=>{m.style.display=(cat==='all'||m.dataset.cat===cat)?'block':'none'});
+  document.querySelectorAll('#aesf .btn').forEach(b=>{b.className='btn btn-outline'});
+  btn.className='btn btn-navy';
+}
+document.getElementById('n-home').classList.add('on');
+</script>
+</body>
+</html>
