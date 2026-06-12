@@ -250,8 +250,6 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   <button class="nav-pill" onclick="go('interact')">Say hello</button>
 </nav>
 
-<!-- TICKER -->
-<div class="ticker"><span class="t-inner">Fashion Intelligence &nbsp;·&nbsp; Business Analytics &nbsp;·&nbsp; Consumer Behavior &nbsp;·&nbsp; Financial Research &nbsp;·&nbsp; Digital Culture &nbsp;·&nbsp; AI &amp; Trend Forecasting &nbsp;·&nbsp; Strategy &nbsp;·&nbsp; Aesthetics &nbsp;·&nbsp; &nbsp;&nbsp;&nbsp; Fashion Intelligence &nbsp;·&nbsp; Business Analytics &nbsp;·&nbsp; Consumer Behavior &nbsp;·&nbsp; Financial Research &nbsp;·&nbsp; Digital Culture &nbsp;·&nbsp; AI &amp; Trend Forecasting &nbsp;·&nbsp; Strategy &nbsp;·&nbsp; Aesthetics &nbsp;·&nbsp;</span></div>
 
 
 <!-- ████████ HOME ████████ -->
@@ -274,15 +272,16 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
         <button class="btn btn-navy" onclick="go('about')">Read my story</button>
         <button class="btn btn-outline" onclick="go('research')">Latest research</button>
       </div>
-    </div>
-    <div class="cover-right">
-      <div class="img-ph" style="width:100%;height:100%;min-height:500px;background:var(--sage-mist)">
-        <div class="cover-deco"></div>
-        <div class="cover-deco2"></div>
-        <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px">
-          <div class="ph-icon" style="background:rgba(125,155,118,.2)">＋</div>
-          <span class="ph-text" style="color:var(--sage)">Add cover photo</span>
-          <span style="font-size:10px;color:var(--sage-light)">Recommended: editorial portrait</span>
+    </div>    
+<div class="cover-right" style="padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:10px;background:var(--sage-mist)">
+  <div class="img-ph on-light" style="border-radius:10px;background:var(--sage-pale);min-height:140px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Photo</span></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:var(--mist-pale);min-height:140px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Photo</span></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:var(--sourdough);min-height:140px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Photo</span></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:var(--mist-pale);min-height:140px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--mist-deep)">Photo</span></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:var(--sage-pale);min-height:140px;grid-column:span 2"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Photo</span></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:var(--sourdough);min-height:140px;grid-column:span 2"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--smoke)">Photo</span></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:var(--sage-mist);min-height:140px"><div class="ph-icon on-light">＋</div><span class="ph-text" style="color:var(--sage)">Photo</span></div>
+</div>
         </div>
       </div>
     </div>
