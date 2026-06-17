@@ -956,11 +956,25 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
 
 <script>
 function go(id){
-  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
-  document.getElementById('p-'+id).classList.add('on');
-  document.querySelectorAll('.nl').forEach(b=>b.classList.remove('on'));
-  const n=document.getElementById('n-'+id);if(n)n.classList.add('on');
-  window.scrollTo(0,0);
+  const target = document.getElementById('p-' + id);
+  if (!target) {
+    alert('Trying to open: p-' + id);
+    return;
+  }
+  document.querySelectorAll('.pg').forEach(function(page){
+    page.classList.remove('on');
+    page.style.display = 'none';
+  });
+  target.classList.add('on');
+  target.style.display = 'block';
+  document.querySelectorAll('.nl').forEach(function(btn){
+    btn.classList.remove('on');
+  });
+  const activeNav = document.getElementById('n-' + id);
+  if (activeNav) {
+    activeNav.classList.add('on');
+  }
+  window.scrollTo(0, 0);
 }
 function vt(el,aId){
   const a=document.getElementById(aId);if(!a||a.dataset.v)return;a.dataset.v='1';
@@ -984,7 +998,7 @@ function fa(cat,btn){
   document.querySelectorAll('#aesf .btn').forEach(b=>{b.className='btn btn-outline'});
   btn.className='btn btn-navy';
 }
-document.getElementById('n-home').classList.add('on');
+go('home');
 </script>
 </body>
 </html>
