@@ -1117,11 +1117,39 @@ async function vt(el, aId) {
 }
 
 
+
 async function send(inputId, formId, tyId) {
   const input = document.getElementById(inputId);
-  const value = input.value.trim();
 
- 
+  if (!input || !input.value.trim()) {
+    alert('Please enter a response.');
+    return;
+  }
+
+  const value = input.value.trim();
+  const type = inputId === 'ti2' ? 'Topic' : 'Question';
+
+  const nameField = document.getElementById('qn2');
+  const name = inputId === 'qb2' && nameField
+    ? nameField.value.trim() || 'Anonymous'
+    : 'Anonymous';
+
+  const source = inputId === 'hqi' ? 'Home' : 'Interact';
+
+  try {
+    await saveResponse(type, value, name, source);
+
+    document.getElementById(formId).style.display = 'none';
+
+    const message = document.getElementById(tyId);
+    message.textContent = 'Submission sent — thank you!';
+    message.style.display = 'block';
+
+  } catch (error) {
+    alert('Unable to send. Please try again.');
+  }
+}
+
 async function qs(inputId, tyId) {
   const input = document.getElementById(inputId);
 
@@ -1145,33 +1173,6 @@ async function qs(inputId, tyId) {
   }
 }
 
-
-  const type = inputId === 'ti2' ? 'Topic' : 'Question';
-
-  const nameField = document.getElementById('qn2');
-  const name = inputId === 'qb2' && nameField
-    ? nameField.value.trim() || 'Anonymous'
-    : 'Anonymous';
-
-  const source = inputId === 'hqi' ? 'Home' : 'Interact';
-
-  try {
-    await saveResponse(type, value, name, source);
-
-    document.getElementById(formId).style.display = 'none';
-
-    const message = document.getElementById(tyId);
-    message.textContent = 'Submission sent — thank you!';
-    message.style.display = 'block';
-
-  } catch (error) {
-    alert('Unable to send. Please try again.');
-  }
-}
-function qs(inputId,tyId){
-  const el=document.getElementById(inputId);if(!el||!el.value.trim())return;
-  el.value='';el.placeholder='Noted.';document.getElementById(tyId).style.display='block';
-}
 function fa(cat,btn){
   document.querySelectorAll('#aes-grid .mason').forEach(m=>{m.style.display=(cat==='all'||m.dataset.cat===cat)?'block':'none'});
   document.querySelectorAll('#aesf .btn').forEach(b=>{b.className='btn btn-outline'});
