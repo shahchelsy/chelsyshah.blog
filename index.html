@@ -1055,7 +1055,11 @@ Let me start with Google, TikTok and various social media trends. People look at
   <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
 </div>
 
-<script>
+<script> 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYXoRWELHndY2G-wbG7oG5L3UJzVUb3f4tMxcm5b8z_9H8ru25aE15rpihewXOEkLWLQ/exec';async function saveResponse(type, submission, name = 'Anonymous', source = 'Interact') {
+  const data = new URLSearchParams({type: type, name: name,submission: submission,source: source});
+  await fetch(SCRIPT_URL, {method: 'POST',mode: 'no-cors',body: data});
+}  
 function go(id){
   const target = document.getElementById('p-' + id);
   if (!target) {
@@ -1077,18 +1081,92 @@ function go(id){
   }
   window.scrollTo(0, 0);
 }
-function vt(el,aId){
-  const a=document.getElementById(aId);if(!a||a.dataset.v)return;a.dataset.v='1';
-  a.querySelectorAll('.poll-opt').forEach(o=>{
-    const c=parseInt(o.querySelector('.p-pct').textContent);
-    o.querySelector('.p-pct').textContent=(o===el?Math.min(c+8,56):Math.max(c-2,4))+'%';
-    if(o===el)o.classList.add('voted');
-  });
+
+async function vt(el, aId) {
+  const poll = document.getElementById(aId);
+
+  if (!poll || poll.dataset.v) return;
+
+  const selected = el.childNodes[0].textContent.trim();
+  poll.dataset.v = 'pending';
+
+  try {
+    await saveResponse(
+      'Poll',
+      selected,
+      'Anonymous',
+      aId === 'ph' ? 'Home' : 'Interact'
+    );
+
+    poll.dataset.v = '1';
+    el.classList.add('voted');
+
+    poll.querySelectorAll('.poll-opt').forEach(option => {
+      const percentage = option.querySelector('.p-pct');
+
+      if (percentage) {
+        percentage.textContent =
+          option === el ? 'Selected' : '';
+      }
+    });
+
+  } catch (error) {
+    delete poll.dataset.v;
+    alert('Unable to submit your vote. Please try again.');
+  }
 }
-function send(inputId,formId,tyId){
-  const v=document.getElementById(inputId).value.trim();if(!v)return;
-  document.getElementById(formId).style.display='none';
-  document.getElementById(tyId).style.display='block';
+
+
+async function send(inputId, formId, tyId) {
+  const input = document.getElementById(inputId);
+  const value = input.value.trim();
+
+ 
+async function qs(inputId, tyId) {
+  const input = document.getElementById(inputId);
+
+  if (!input || !input.value.trim()) {
+    alert('Please enter a topic suggestion.');
+    return;
+  }
+
+  const topic = input.value.trim();
+
+  try {
+    await saveResponse('Topic', topic, 'Anonymous', 'Interact');
+
+    input.value = '';
+    input.placeholder = 'Suggestion sent!';
+
+    document.getElementById(tyId).style.display = 'block';
+
+  } catch (error) {
+    alert('Unable to send your suggestion. Please try again.');
+  }
+}
+
+
+  const type = inputId === 'ti2' ? 'Topic' : 'Question';
+
+  const nameField = document.getElementById('qn2');
+  const name = inputId === 'qb2' && nameField
+    ? nameField.value.trim() || 'Anonymous'
+    : 'Anonymous';
+
+  const source = inputId === 'hqi' ? 'Home' : 'Interact';
+
+  try {
+    await saveResponse(type, value, name, source);
+
+    document.getElementById(formId).style.display = 'none';
+
+    const message = document.getElementById(tyId);
+    message.textContent = 'Submission sent — thank you!';
+    message.style.display = 'block';
+
+  } catch (error) {
+    alert('Unable to send. Please try again.');
+  }
 }
 function qs(inputId,tyId){
   const el=document.getElementById(inputId);if(!el||!el.value.trim())return;
