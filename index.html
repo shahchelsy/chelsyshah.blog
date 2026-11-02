@@ -140,6 +140,184 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
 .op-tags{display:flex;gap:6px;flex-wrap:wrap}
 
 /* ── RESEARCH ── */
+  
+/* ── ROI FORECASTING PROJECT ── */
+
+.roi-project {
+  margin-bottom: 52px;
+}
+
+.roi-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.roi-eyebrow {
+  font-size: 10px;
+  color: var(--sage);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.roi-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.roi-subheading {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--smoke);
+  margin-bottom: 24px;
+}
+
+.roi-text {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--smoke);
+  max-width: 900px;
+  margin-bottom: 18px;
+}
+
+.roi-section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  color: var(--sage);
+  margin: 36px 0 16px;
+}
+
+.roi-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.roi-chart-card {
+  background: var(--white);
+  border: 1px solid var(--sourdough);
+  border-radius: var(--r);
+  padding: 14px;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.roi-chart-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(28,43,58,.10);
+}
+
+.roi-chart-card a {
+  display: block;
+  background: var(--cream);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+
+.roi-chart-card img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  transition: transform .25s;
+}
+
+.roi-chart-card:hover img {
+  transform: scale(1.02);
+}
+
+.roi-chart-card figcaption {
+  padding: 16px 4px 4px;
+}
+
+.roi-number {
+  display: block;
+  font-size: 9px;
+  letter-spacing: .15em;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.roi-chart-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--navy);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.roi-chart-card p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--smoke);
+}
+
+.roi-takeaway {
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--sage-mist);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+
+.roi-takeaway-label {
+  display: block;
+  color: var(--moss);
+  font-size: 10px;
+  letter-spacing: .16em;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.roi-takeaway p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--navy);
+}
+
+.roi-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.roi-project-divider {
+  border: none;
+  border-top: 1px solid var(--sourdough);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 700px) {
+  .roi-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .roi-chart-card img {
+    height: auto;
+    max-height: 340px;
+  }
+
+  .roi-heading {
+    font-size: 28px;
+  }
+
+  .roi-takeaway {
+    padding: 18px;
+  }
+}
 .research-block{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center}
 @media(max-width:700px){.research-block{grid-template-columns:1fr}}
 .res-stat{background:var(--white);border-radius:var(--r);padding:20px;border:1px solid var(--sourdough);margin-bottom:12px}
@@ -682,6 +860,150 @@ My goal is to build a career where I can contribute to the future of the fashion
     <p class="section-sub">Every project starts with a question. This is where I explore it, test it, and document what I learn along the way.</p>
   </div>
   <div style="padding:48px 28px;background:var(--plaster)">
+
+    
+<!-- FEATURED PROJECT: ROI FORECASTING & CAPITAL EFFICIENCY -->
+
+<section class="roi-project" id="roi-project">
+
+  <div class="roi-topline">
+    <span class="label navy">Finance + Analytics · 2026</span>
+    <span class="roi-eyebrow">Featured Project</span>
+  </div>
+
+  <h2 class="roi-heading">
+    ROI Forecasting &amp; Capital Efficiency Model
+  </h2>
+
+  <p class="roi-subheading">
+    Understanding how financial decisions influence costs,
+    returns, and capital allocation.
+  </p>
+
+  <p class="roi-text">
+    This project explores how financial modeling can support
+    more informed business decisions. Using Excel, I examined
+    sales performance, spending patterns, investment scenarios,
+    and projected returns to understand how different financial
+    assumptions can influence business performance and capital
+    efficiency.
+  </p>
+
+  <p class="roi-text">
+    Rather than looking at financial figures in isolation,
+    the objective was to compare alternative scenarios,
+    identify meaningful patterns, and understand how data
+    can support strategic investment and resource allocation
+    decisions.
+  </p>
+
+  <div class="roi-section-label">MODEL EXPLORATION</div>
+
+  <div class="roi-gallery">
+
+    <!-- 01: RESULTS -->
+    <figure class="roi-chart-card">
+      <a href="results.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="results.jpg"
+             alt="ROI forecasting results"
+             loading="lazy">
+      </a>
+      <figcaption>
+        <span class="roi-number">01 / RESULTS</span>
+        <h3>Financial Model Outputs</h3>
+        <p>
+          Reviewing financial model outputs to understand
+          projected performance and support investment
+          decision-making.
+        </p>
+      </figcaption>
+    </figure>
+
+    <!-- 02: SCENARIOS -->
+    <figure class="roi-chart-card">
+      <a href="scenarios.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="scenarios.jpg"
+             alt="Financial scenario comparison"
+             loading="lazy">
+      </a>
+      <figcaption>
+        <span class="roi-number">02 / SCENARIOS</span>
+        <h3>Scenario Comparison</h3>
+        <p>
+          Comparing different spending and sales assumptions
+          to examine their impact on projected financial
+          outcomes.
+        </p>
+      </figcaption>
+    </figure>
+
+    <!-- 03: EXPLORATORY DATA ANALYSIS -->
+    <figure class="roi-chart-card">
+      <a href="eda.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="eda.jpg"
+             alt="Exploratory data analysis"
+             loading="lazy">
+      </a>
+      <figcaption>
+        <span class="roi-number">03 / DATA EXPLORATION</span>
+        <h3>Exploratory Data Analysis</h3>
+        <p>
+          Examining underlying data patterns and relationships
+          to better understand sales, spending, and financial
+          performance.
+        </p>
+      </figcaption>
+    </figure>
+
+    <!-- 04: MODEL DIAGNOSTICS -->
+    <figure class="roi-chart-card">
+      <a href="modeldiagnostics.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="modeldiagnostics.jpg"
+             alt="Financial model diagnostics"
+             loading="lazy">
+      </a>
+      <figcaption>
+        <span class="roi-number">04 / MODEL DIAGNOSTICS</span>
+        <h3>Model Evaluation</h3>
+        <p>
+          Evaluating model diagnostics to understand
+          forecasting reliability and the limitations
+          of projected financial outcomes.
+        </p>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <div class="roi-takeaway">
+    <span class="roi-takeaway-label">STRATEGIC TAKEAWAY</span>
+    <p>
+      What interests me most about financial modeling is
+      not just predicting a return, but understanding
+      the decisions behind it. Comparing financial scenarios
+      helps businesses recognize trade-offs, evaluate risks,
+      and allocate capital more efficiently.
+    </p>
+  </div>
+
+  <div class="roi-tag-row">
+    <span class="label sage">Excel</span>
+    <span class="label mist">Financial Modeling</span>
+    <span class="label cream">ROI Forecasting</span>
+    <span class="label sage">Scenario Analysis</span>
+  </div>
+
+</section>
+
+<hr class="roi-project-divider">
+
+<!-- END FEATURED ROI PROJECT -->
+
+    
     <div class="research-block" style="margin-bottom:48px">
       <div>
         <span class="label navy" style="margin-bottom:16px;display:inline-block">Ongoing · 2026</span>
