@@ -518,6 +518,106 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   
 /* ── STRIPE ── */
 .stripe{height:6px;background:linear-gradient(90deg,var(--sage),var(--eucalyptus),var(--mist),var(--mist-deep),var(--navy))}
+
+/* ── STRATEGY LAB GAME CARDS ── */
+
+.strategy-game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.strategy-game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 295px;
+  padding: 30px;
+  background: var(--white);
+  border: 1px solid var(--sourdough);
+  border-radius: var(--r);
+  text-align: left;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  transition: transform .25s ease,
+              box-shadow .25s ease,
+              border-color .25s ease;
+}
+
+.strategy-game-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--sage);
+  box-shadow: 0 10px 28px rgba(28, 43, 58, .09);
+}
+
+.strategy-game-card:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 4px;
+}
+
+.strategy-game-number {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .15em;
+  color: var(--sage);
+}
+
+.strategy-game-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+.strategy-game-card p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--smoke);
+  margin-bottom: 26px;
+}
+
+.strategy-game-footer {
+  margin-top: auto;
+  font-size: 11px;
+  color: var(--smoke);
+  letter-spacing: .03em;
+}
+
+.strategy-game-link {
+  display: block;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--moss);
+  letter-spacing: .03em;
+}
+
+.strategy-game-card:hover .strategy-game-link {
+  color: var(--navy);
+}
+
+@media (max-width: 700px) {
+  .strategy-game-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .strategy-game-card {
+    min-height: 260px;
+    padding: 24px;
+  }
+
+  .strategy-game-card h2 {
+    font-size: 23px;
+  }
+}
 </style>
 </head>
 <body>
@@ -534,7 +634,8 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
     <button class="nl" id="n-research" onclick="go('research')">Research</button>
     <button class="nl" id="n-work" onclick="go('work')">Work</button>
     <button class="nl" id="n-opinions" onclick="go('opinions')">Opinions</button>
-    <button class="nl" id="n-aesthetics" onclick="go('aesthetics')">Aesthetics</button>
+    <button class="nl" id="n-aesthetics" onclick="go('aesthetics')">Aesthetics</button>  
+    <button class="nl" id="n-games" onclick="go('games')">Games</button>
     <button class="nl" id="n-interact" onclick="go('interact')">Interact</button>
   </div>
   <button class="nav-pill" onclick="go('interact')">Say hello</button>
@@ -813,6 +914,89 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
       <button class="btn btn-outline" onclick="go('opinions')">All opinions →</button>
     </div>
   </div>
+  
+
+<!-- ████████ GAMES ████████ -->
+<div id="p-games" class="pg">
+  <div style="padding:48px 28px;background:var(--plaster)">
+    <span class="label navy">GAMES</span>
+    <h1 style="font-family:'Playfair Display',serif;
+               font-size:36px;
+               color:var(--navy);
+               margin:24px 0 12px;">
+      Think. Choose. Discover.
+    </h1>
+    <p style="font-size:13px;
+              line-height:1.85;
+              color:var(--smoke);
+              margin-bottom:36px;">
+      A little space to test your instincts,
+      challenge your decisions, and discover
+      how you think.
+    </p>
+    
+<div id="games-container">
+
+  <div class="strategy-game-grid">
+
+    <!-- GAME 1 -->
+    <button type="button"
+            class="strategy-game-card"
+            id="open-strategist-quiz">
+      <span class="strategy-game-number">
+        01 / PERSONALITY QUIZ
+      </span>
+
+      <h2>What Kind of Strategist Are You?</h2>
+
+      <p>
+        Are you a visionary, an analyst, a risk taker,
+        or a mastermind? Lets find out!! Answer five quick questions
+        to discover how you naturally think and
+        make decisions.
+      </p>
+
+      <span class="strategy-game-footer">
+        5 Questions · 2 Minutes
+      </span>
+
+      <span class="strategy-game-link">
+        Discover Your Type →
+      </span>
+
+    </button>
+
+    <!-- GAME 2 -->
+    <button type="button"
+            class="strategy-game-card"
+            id="open-brand-game">
+
+      <span class="strategy-game-number">
+        02 / BUSINESS SIMULATION
+      </span>
+
+      <h2>Build Your Brand</h2>
+      <p>
+        Launch your own hypothetical brand,
+        choose your competitive strategy,
+        manage a $100,000 budget, and discover
+        how your decisions shape your business.
+      </p>
+      <span class="strategy-game-footer">
+        5 Decisions · 4 Minutes
+      </span>
+      <span class="strategy-game-link">
+        Start Building →
+      </span>
+   </button>
+  </div>
+  <div id="strategy-game-play-area" hidden></div>
+</div>
+
+  </div>
+
+</div>
+<!-- END GAMES PAGE -->
   
   <!-- 8 · INTERACT -->
   <div class="section" style="background:var(--cream)">
