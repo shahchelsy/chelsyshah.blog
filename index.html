@@ -618,6 +618,1910 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
     font-size: 23px;
   }
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chelsy Shah</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,900;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sage:#7D9B76;
+  --sage-light:#A8BFA3;
+  --sage-pale:#D4E3D0;
+  --sage-mist:#EBF2E8;
+  --moss:#4A6741;
+  --eucalyptus:#8FB5A0;
+  --mist:#B8CDD6;
+  --mist-pale:#D8E8EE;
+  --mist-deep:#7FA8B8;
+  --navy:#1C2B3A;
+  --navy-soft:#2E4057;
+  --cream:#F7F4EE;
+  --plaster:#F0EDE5;
+  --sourdough:#E8E2D8;
+  --beige:#D8D0C4;
+  --ink:#1A1A1A;
+  --smoke:#6B6560;
+  --muted:#9A9590;
+  --white:#FFFFFF;
+  --r:12px;
+  --r-sm:6px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);color:var(--ink);font-size:14px;line-height:1.6;overflow-x:hidden}
+
+/* ── PAGES ── */
+.pg{display:none}.pg.on{display:block}
+
+/* ── NAV ── */
+.nav{position:sticky;top:0;z-index:300;background:rgba(247,244,238,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--sourdough);display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:56px}
+.logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;letter-spacing:-.02em;cursor:pointer;color:var(--navy)}
+.logo span{color:var(--sage)}
+.nav-links{display:flex;gap:2px}
+.nl{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;cursor:pointer;color:var(--smoke);border:none;background:none;border-radius:20px;transition:.2s;white-space:nowrap}
+.nl:hover{color:var(--navy);background:var(--sage-mist)}
+.nl.on{color:var(--white);background:var(--navy)}
+.nav-pill{font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;background:var(--sage);color:var(--white);border:none;border-radius:20px;cursor:pointer;transition:.2s}
+.nav-pill:hover{background:var(--moss)}
+
+/* ── TICKER ── */
+.ticker{background:var(--navy);color:var(--mist-pale);padding:8px 0;overflow:hidden;white-space:nowrap}
+.t-inner{display:inline-block;font-size:10px;letter-spacing:.2em;text-transform:uppercase;animation:scroll 40s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── SHARED ── */
+.section{padding:64px 28px}
+.section-sm{padding:40px 28px}
+.eyebrow{font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;display:block}
+.eyebrow.navy{color:var(--mist-deep)}
+.section-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;line-height:1.1;letter-spacing:-.02em;margin-bottom:8px;color:var(--navy)}
+.section-sub{font-size:13px;color:var(--smoke);max-width:520px;line-height:1.75;margin-bottom:32px}
+.label{font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:20px;display:inline-block}
+.label.sage{background:var(--sage-pale);color:var(--moss)}
+.label.mist{background:var(--mist-pale);color:var(--mist-deep)}
+.label.navy{background:var(--navy);color:var(--white)}
+.label.cream{background:var(--sourdough);color:var(--smoke)}
+.btn{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding:10px 22px;border-radius:24px;cursor:pointer;transition:.2s;border:none;display:inline-block}
+.btn-navy{background:var(--navy);color:var(--white)}.btn-navy:hover{background:var(--navy-soft)}
+.btn-sage{background:var(--sage);color:var(--white)}.btn-sage:hover{background:var(--moss)}
+.btn-outline{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}.btn-outline:hover{background:var(--navy);color:var(--white)}
+
+/* ── IMG PLACEHOLDERS ── */
+.img-ph{border-radius:var(--r);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;cursor:pointer;position:relative;overflow:hidden;transition:.2s}
+.img-ph:hover{opacity:.9}
+.img-ph .ph-icon{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:18px}
+.img-ph .ph-text{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.img-ph.on-light .ph-icon{background:rgba(0,0,0,.08)}
+.img-ph.on-light .ph-text{color:var(--smoke)}
+
+/* ── COVER ── */
+.cover{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;border-bottom:1px solid var(--sourdough)}
+@media(max-width:700px){.cover{grid-template-columns:1fr;min-height:auto}}
+.cover-left{padding:60px 48px;display:flex;flex-direction:column;justify-content:center;background:var(--cream)}
+.cover-right{background:var(--sage-mist);position:relative;overflow:hidden}
+.cover-right .big-img{width:100%;height:100%;min-height:400px;object-fit:cover}
+.cover-eyebrow{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--sage);margin-bottom:20px}
+.cover-name{font-family:'Playfair Display',serif;font-size:clamp(42px,6vw,72px);font-weight:900;line-height:.95;letter-spacing:-.04em;color:var(--navy);margin-bottom:24px}
+.cover-name em{color:var(--sage);font-style:normal}
+.cover-intro{font-size:15px;color:var(--smoke);line-height:1.8;max-width:460px;margin-bottom:32px}
+.cover-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.cover-btns{display:flex;gap:12px;flex-wrap:wrap}
+.cover-deco{position:absolute;bottom:-20px;right:-20px;width:200px;height:200px;border-radius:50%;background:var(--eucalyptus);opacity:.2}
+.cover-deco2{position:absolute;top:40px;left:40px;width:120px;height:120px;border-radius:50%;background:var(--mist);opacity:.25}
+
+/* ── EXPLORE CARDS ── */
+.explore-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.explore-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){.explore-grid{grid-template-columns:1fr 1fr}}
+.exp-card{border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.25s}
+.exp-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(28,43,58,.12)}
+.exp-card-img{height:140px;display:flex;align-items:flex-end;padding:14px;position:relative}
+.exp-card-body{padding:14px 16px 18px;background:var(--white)}
+.exp-card-icon{font-size:28px;position:absolute;top:14px;right:14px;opacity:.6}
+.exp-card h3{font-family:'Playfair Display',serif;font-size:15px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.exp-card p{font-size:11px;color:var(--smoke);line-height:1.6}
+
+/* ── MOODBOARD ── */
+.moodboard{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:12px}
+@media(max-width:640px){.moodboard{grid-template-columns:1fr 1fr}}
+.mb-item{border-radius:var(--r);overflow:hidden;cursor:pointer;transition:.2s}
+.mb-item:hover{transform:scale(1.02)}
+.mb-item.tall{grid-row:span 2}
+.mb-item.wide{grid-column:span 2}
+.mb-img{width:100%;height:100%;min-height:160px;display:flex;align-items:flex-end;padding:14px;position:relative}
+.mb-img.sq{min-height:220px}
+.mb-cap{position:relative;z-index:1;font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+
+/* ── MASONRY ── */
+.masonry{columns:3;column-gap:12px;padding:4px}
+@media(max-width:700px){.masonry{columns:2}}
+.mason{break-inside:avoid;margin-bottom:12px;cursor:pointer}
+.mason-inner{border-radius:var(--r);overflow:hidden;background:var(--white);border:1px solid var(--sourdough);transition:.2s}
+.mason:hover .mason-inner{transform:translateY(-3px);box-shadow:0 8px 24px rgba(28,43,58,.1)}
+.mason-img{width:100%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;border-radius:var(--r) var(--r) 0 0;position:relative;overflow:hidden}
+.mason-cap{padding:12px 14px}
+.mason-cat{font-size:9px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:4px}
+.mason-title{font-size:12px;color:var(--ink);line-height:1.45}
+
+/* ── OPINIONS ── */
+.opinions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:800px){.opinions-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.opinions-grid{grid-template-columns:1fr}}
+.op-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);cursor:pointer;transition:.2s}
+.op-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(28,43,58,.1)}
+.op-img{height:180px;display:flex;align-items:flex-end;padding:14px}
+.op-body{padding:18px}
+.op-date{font-size:10px;color:var(--muted);margin-bottom:8px}
+.op-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:var(--navy);line-height:1.25;margin-bottom:8px}
+.op-teaser{font-size:12px;color:var(--smoke);line-height:1.65;margin-bottom:14px}
+.op-tags{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── RESEARCH ── */
+  
+
+/* ── ROI FORECASTING PROJECT ── */
+
+.roi-project {
+  margin-bottom: 52px;
+}
+
+/* Project heading */
+
+.roi-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.roi-eyebrow {
+  font-size: 10px;
+  color: var(--sage);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.roi-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.roi-subheading {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--smoke);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* Project descriptions */
+
+.roi-text {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--smoke);
+  width: 100%;
+  max-width: none;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.roi-section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  color: var(--sage);
+  text-transform: uppercase;
+  margin: 34px 0 16px;
+}
+
+/* Methodology cards */
+
+.roi-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 32px;
+}
+
+.roi-method-item {
+  background: var(--white);
+  border: 1px solid var(--sourdough);
+  border-radius: var(--r-sm);
+  padding: 18px;
+}
+
+.roi-method-item strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.roi-method-item p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--smoke);
+}
+
+/* Screenshot gallery */
+
+.roi-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0 30px;
+}
+
+.roi-chart-card {
+  background: var(--white);
+  border: 1px solid var(--sourdough);
+  border-radius: var(--r);
+  padding: 12px;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  transition: transform .25s, box-shadow .25s;
+}
+
+.roi-chart-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(28,43,58,.10);
+}
+
+.roi-chart-card a {
+  display: block;
+  background: var(--cream);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.roi-chart-card img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  object-position: center;
+  background: var(--white);
+  transition: transform .25s;
+}
+
+.roi-chart-card:hover img {
+  transform: scale(1.02);
+}
+
+/* Screenshot explanations */
+
+.roi-chart-card figcaption {
+  padding: 16px 8px 8px;
+}
+
+.roi-number {
+  display: block;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: .15em;
+  color: var(--sage);
+  margin-bottom: 8px;
+}
+
+.roi-chart-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.roi-chart-card p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--smoke);
+  margin-bottom: 12px;
+}
+
+.roi-chart-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Strategic takeaway */
+
+.roi-takeaway {
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--sage-mist);
+  border-left: 3px solid var(--sage);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+
+.roi-takeaway-label {
+  display: block;
+  color: var(--moss);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .16em;
+  margin-bottom: 12px;
+}
+
+.roi-takeaway p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--navy);
+}
+
+/* Project skill tags */
+
+.roi-tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+/* Separation from next research project */
+
+.roi-project-divider {
+  border: none;
+  border-top: 1px solid var(--sourdough);
+  margin-bottom: 40px;
+}
+
+/* Mobile responsive layout */
+
+@media (max-width: 700px) {
+
+  .roi-heading {
+    font-size: 26px;
+  }
+
+  .roi-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roi-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .roi-chart-card img {
+    height: auto;
+    max-height: none;
+  }
+
+  .roi-chart-card {
+    padding: 10px;
+  }
+
+  .roi-takeaway {
+    padding: 18px;
+  }
+
+  .roi-text {
+    font-size: 13px;
+  }
+}
+.research-block{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center}
+@media(max-width:700px){.research-block{grid-template-columns:1fr}}
+.res-stat{background:var(--white);border-radius:var(--r);padding:20px;border:1px solid var(--sourdough);margin-bottom:12px}
+.res-stat-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--navy);line-height:1}
+.res-stat-label{font-size:10px;color:var(--smoke);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.nb-entry{border-left:2.5px solid var(--eucalyptus);padding:12px 16px;background:rgba(143,181,160,.07);border-radius:0 var(--r-sm) var(--r-sm) 0;margin-bottom:10px}
+.nb-d{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
+.nb-h{font-family:'Playfair Display',serif;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.nb-b{font-size:11px;color:var(--smoke);line-height:1.65}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:640px){.proj-grid{grid-template-columns:1fr}}
+.proj-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);cursor:pointer;transition:.2s}
+.proj-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(28,43,58,.1)}
+.proj-img{height:280px;display:flex;align-items:flex-end;padding:16px;}
+.project-img{height:260px;display:flex;align-items:flex-end;padding:16px;}
+.proj-body{padding:20px}
+.proj-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:8px;line-height:1.2}
+.proj-summary{font-size:12px;color:var(--smoke);line-height:1.7;margin-bottom:14px}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── WORK SPREADS ── */
+.work-item{display:grid;grid-template-columns:280px 1fr;gap:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);margin-bottom:20px;background:var(--white)}
+@media(max-width:700px){.work-item{grid-template-columns:1fr}}
+.work-img{min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px}
+.work-cover{min-height:220px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;overflow:hidden;}
+.work-content{padding:28px}
+.work-role{font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);margin-bottom:6px}
+.work-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:6px}
+.work-org{font-size:12px;color:var(--sage);font-weight:500;margin-bottom:14px}
+.work-summary{font-size:12px;color:var(--smoke);line-height:1.8;margin-bottom:16px}
+.work-ach{font-size:11px;color:var(--ink);line-height:1.7;padding-left:14px;border-left:2px solid var(--sage-pale);margin-bottom:8px}
+
+/* ── ABOUT PAGE ── */
+.about-hero{display:grid;grid-template-columns:1fr 1fr;min-height:60vh;border-bottom:1px solid var(--sourdough)}
+@media(max-width:700px){.about-hero{grid-template-columns:1fr}}
+.ab-left{padding:56px 48px;background:var(--navy);display:flex;flex-direction:column;justify-content:center}
+.ab-right{background:var(--sage-mist);position:relative;overflow:hidden;min-height:300px}
+.about-content{max-width:680px;margin:0 auto;padding:56px 28px}
+.about-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;font-weight:400;line-height:1.4;color:var(--navy);border-left:3px solid var(--sage);padding-left:20px;margin:32px 0}
+.about-body{
+    font-size:13.5px;
+    line-height:1.95;
+    color:var(--ink);
+    margin-bottom:24px;
+}
+.about-img-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0}
+
+/* ── INTERACT ── */
+.interact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:640px){.interact-grid{grid-template-columns:1fr}}
+.int-card{background:var(--white);border-radius:var(--r);padding:28px;border:1px solid var(--sourdough)}
+.int-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.int-sub{font-size:12px;color:var(--smoke);line-height:1.7;margin-bottom:20px}
+.int-input,.int-ta{width:100%;font-size:12px;font-family:'DM Sans',sans-serif;font-weight:300;padding:11px 14px;border:1.5px solid var(--sourdough);background:var(--cream);color:var(--ink);border-radius:var(--r-sm);outline:none;margin-bottom:10px;transition:.2s}
+.int-input:focus,.int-ta:focus{border-color:var(--sage)}
+.int-ta{height:84px;resize:none}
+.poll-opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1.5px solid var(--sourdough);border-radius:var(--r-sm);margin-bottom:8px;cursor:pointer;font-size:12px;transition:.2s;background:var(--cream)}
+.poll-opt:hover{border-color:var(--sage);background:var(--sage-mist)}
+.poll-opt.voted{border-color:var(--sage);background:var(--sage-pale)}
+.p-pct{font-size:10px;color:var(--smoke);min-width:32px;text-align:right;margin-left:auto}
+.ty-msg{font-family:'Playfair Display',serif;font-style:italic;font-size:15px;color:var(--sage);padding:10px 0}
+.qa-item{padding:22px 0;border-bottom:1px solid var(--sourdough)}
+.qa-q{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--navy);margin-bottom:8px}
+.qa-a{font-size:12px;color:var(--smoke);line-height:1.8}
+.qa-attr{font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:.08em}
+
+/* ── FULL OPINIONS PAGE ── */
+.op-full-card{background:var(--white);border-radius:var(--r);overflow:hidden;border:1px solid var(--sourdough);margin-bottom:20px}
+.op-full-img{height:240px;display:flex;align-items:flex-end;padding:20px}
+.op-full-body{padding:28px}
+.op-full-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:10px}
+.op-full-meta{display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+.op-full-excerpt{font-size:13px;color:var(--smoke);line-height:1.85;margin-bottom:16px}
+.op-full-ph{background:var(--plaster);border-radius:var(--r-sm);padding:16px;border:1.5px dashed var(--sourdough);font-style:normal;font-size:14px;color:var(--navy)}
+/* Paragraph spacing for Opinion articles */
+.op-full-ph p{margin-bottom: 20px;line-height: 1.8;}
+.op-full-ph p:last-child {margin-bottom: 0;}
+/* ── FULL AESTHETICS PAGE ── */
+.aes-filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.aes-filter-bar .btn{padding:7px 16px;font-size:10px}
+
+/* ── FOOTER ── */
+.footer{background:var(--navy);padding:48px 28px 36px}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;margin-bottom:40px}
+@media(max-width:640px){.footer-grid{grid-template-columns:1fr}}
+.footer-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;color:var(--white);margin-bottom:10px}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,.45);line-height:1.7}
+.footer-col-title{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage-light);margin-bottom:14px}
+.footer-link{display:block;font-size:12px;color:rgba(255,255,255,.55);margin-bottom:8px;cursor:pointer;transition:.15s;background:none;border:none;text-align:left;padding:0}
+.footer-link:hover{color:var(--white)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-copy{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.08em}
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width:700px){
+  .nav{height:auto;padding:12px 16px;flex-wrap:wrap;gap:10px;}
+  .nav-links{order:3;width:100%;overflow-x:auto;gap:6px;padding-bottom:4px;}
+  .nl{font-size:9px;padding:7px 10px;flex-shrink:0;}
+  .nav-pill{font-size:8px;padding:6px 12px;}
+  .section,.section-sm{padding:42px 18px;}
+  .section-title{font-size:32px !important;}
+  .cover{grid-template-columns:1fr !important;}
+  .cover-left{padding:44px 22px;}
+  .cover-name{font-size:52px;}
+  .cover-right{grid-template-columns:1fr 1fr !important;padding:14px !important;}
+  .explore-grid,
+  .proj-grid,
+  .opinions-grid,
+  .interact-grid{grid-template-columns:1fr !important;}
+  .research-block,
+  .about-hero,
+  .work-item{grid-template-columns:1fr !important;}
+  .work-cover{min-height:260px;}
+  .work-content{padding:22px;}
+  .masonry{columns:1 !important;}
+  .op-img{height:190px;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;}
+  input,
+  textarea,
+  button{font-size:16px;}
+  }
+  
+/* ── STRIPE ── */
+.stripe{height:6px;background:linear-gradient(90deg,var(--sage),var(--eucalyptus),var(--mist),var(--mist-deep),var(--navy))}
+
+/* ── STRATEGY LAB GAME CARDS ── */
+
+.strategy-game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.strategy-game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 295px;
+  padding: 30px;
+  background: var(--white);
+  border: 1px solid var(--sourdough);
+  border-radius: var(--r);
+  text-align: left;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--navy);
+  transition: transform .25s ease,
+              box-shadow .25s ease,
+              border-color .25s ease;
+}
+
+.strategy-game-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--sage);
+  box-shadow: 0 10px 28px rgba(28, 43, 58, .09);
+}
+
+.strategy-game-card:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 4px;
+}
+
+.strategy-game-number {
+  display: block;
+  margin-bottom: 24px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .15em;
+  color: var(--sage);
+}
+
+.strategy-game-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+  margin-bottom: 18px;
+}
+
+.strategy-game-card p {
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--smoke);
+  margin-bottom: 26px;
+}
+
+.strategy-game-footer {
+  margin-top: auto;
+  font-size: 11px;
+  color: var(--smoke);
+  letter-spacing: .03em;
+}
+
+.strategy-game-link {
+  display: block;
+  margin-top: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--moss);
+  letter-spacing: .03em;
+}
+
+.strategy-game-card:hover .strategy-game-link {
+  color: var(--navy);
+}
+
+@media (max-width: 700px) {
+  .strategy-game-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .strategy-game-card {
+    min-height: 260px;
+    padding: 24px;
+  }
+
+  .strategy-game-card h2 {
+    font-size: 23px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- COLOR STRIPE -->
+<div class="stripe"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="logo" onclick="go('home')">Chelsy<span>.</span></span>
+  <div class="nav-links">
+    <button class="nl on" id="n-home" onclick="go('home')">Home</button>
+    <button class="nl" id="n-about" onclick="go('about')">About</button>
+    <button class="nl" id="n-research" onclick="go('research')">Research</button>
+    <button class="nl" id="n-work" onclick="go('work')">Work</button>
+    <button class="nl" id="n-opinions" onclick="go('opinions')">Opinions</button>
+    <button class="nl" id="n-aesthetics" onclick="go('aesthetics')">Aesthetics</button>  
+    <button class="nl" id="n-games" onclick="go('games')">Games</button>
+    <button class="nl" id="n-interact" onclick="go('interact')">Interact</button>
+  </div>
+  <button class="nav-pill" onclick="go('interact')">Say hello</button>
+</nav>
+
+
+
+<!-- ████████ HOME ████████ -->
+<div id="p-home" class="pg on">
+
+  <!-- 1 · COVER -->
+  <div class="cover">
+    <div class="cover-left">
+      <span class="cover-eyebrow">Digital Magazine &nbsp;·&nbsp; Est. 2026</span>
+      <h1 class="cover-name">Chelsy<br><em>Shah</em></h1>
+      <p class="cover-intro">Business Analytics with Information Technology &amp; Finance major at Rutgers, exploring the intersection of <strong>fashion, data, consumer behavior, and strategy.</strong></p><p>Finding stories where others see information</p>
+      <div class="cover-tags">
+        <span class="label sage">Fashion Trend Forecasting</span>
+        <span class="label mist">Business Analytics</span>
+        <span class="label cream">Finance</span>
+        <span class="label sage">Consumer Behavior</span>
+        <span class="label cream">Strategy</span>
+        <span class="label cream">Artificial Intelligence </span>
+      </div>
+      <div class="cover-btns">
+        <button class="btn btn-navy" onclick="go('about')">Read my story</button>
+        <button class="btn btn-outline" onclick="go('research')">Latest research</button>
+      </div>
+    </div>    
+<div class="cover-right" style="padding:24px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:10px;background:var(--sage-mist)">
+  <div class="img-ph on-light" style="border-radius:10px;background:url('study.jpg') center/cover no-repeat;min-height:140px"></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:url('sabyasachi.jpg') center/cover no-repeat;min-height:140px"></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:url('food.jpg') center/cover no-repeat;min-height:140px"></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:url('lv.jpg') center/cover no-repeat;min-height:140px"></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:url('selfie.jpg') center/cover no-repeat;min-height:140px;grid-column:span 2"></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:url('cafe.JPG') center/cover no-repeat;min-height:140px;grid-column:span 2"></div>
+  <div class="img-ph on-light" style="border-radius:10px;background:url('makeup.jpg') center/cover no-repeat;min-height:140px"></div>
+</div>
+      </div>
+
+  <!-- 2 · WHAT I EXPLORE -->
+  <div class="section" style="background:var(--plaster)">
+    <span class="eyebrow">What I explore</span>
+    <h2 class="section-title">The intersections that fascinate me</h2>
+    <div class="explore-grid">
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('fashion_trend_forecasting.jpg') center/cover no-repeat">
+          <span class="exp-card-icon">🌿</span>
+          <span class="label sage" style="position:relative;z-index:1">Fashion</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Fashion Intelligence</h3>
+          <p>How aesthetics predict markets. Trend signals as financial data.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('business_analytics.jpg') center center/cover no-repeat">
+          <span class="exp-card-icon">📊</span>
+          <span class="label mist" style="position:relative;z-index:1">Analytics</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Business Analytics</h3>
+          <p>Forecasting, data modeling, and the stories numbers tell.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('finance.jpg') center/cover no-repeat">
+          <span class="exp-card-icon">💰</span>
+          <span class="label cream" style="position:relative;z-index:1">Finance</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Finance</h3>
+          <p>Equity markets, investor behavior, capital allocation and risk.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('consumer_behaviour.jpg') center/cover no-repeat">
+          <span class="exp-card-icon">🧠</span>
+          <span class="label sage" style="position:relative;z-index:1">Consumer</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Consumer Behavior</h3>
+          <p>Why people buy, what they signal, how culture drives spending.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('strategy.jpg') center/cover no-repeat">
+          <span class="exp-card-icon">♟</span>
+          <span class="label mist" style="position:relative;z-index:1">Strategy</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Strategy</h3>
+          <p>Business models, competitive positioning, and market thinking.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('social_media.jpg') center/cover no-repeat">
+          <span class="exp-card-icon">💻</span>
+          <span class="label cream" style="position:relative;z-index:1">Digital</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Digital Culture</h3>
+          <p>How platforms, algorithms, and online aesthetics shape the world.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('tech.jpg') center/cover no-repeat">
+          <span class="exp-card-icon">🤖</span>
+          <span class="label sage" style="position:relative;z-index:1">AI</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>AI &amp; Technology</h3>
+          <p>Artificial intelligence in fashion, finance, and beyond.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card-img img-ph" style="background:url('aesthetics.jpg') center/cover no-repeat">
+          <span class="exp-card-icon">🎨</span>
+          <span class="label mist" style="position:relative;z-index:1">Aesthetics</span>
+        </div>
+        <div class="exp-card-body">
+          <h3>Aesthetics</h3>
+          <p>The visual world — moodboards, fashion, travel, design, beauty.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 5 · RESEARCH -->
+  <div class="section" style="background:var(--navy)">
+    <span class="eyebrow" style="color:var(--eucalyptus)">Current Research</span>
+    <h2 class="section-title" style="color:var(--white)">Modeling Fashion Trend Shocks &amp; Their Financial Impact Using AI</h2>
+    <div class="research-block">
+      <div>
+        <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:24px">This project investigates the relationship between fashion trend signals and their downstream impact on consumer demand and financial markets. The research combines Google Trends, publicly available stock market data, and time series modeling to examine how digital attention evolves before measurable business outcomes occur. Using Python for data collection, preprocessing, visualization, and predictive analysis, the study applies statistical and machine learning techniques to identify patterns, estimate trend lag, and evaluate whether early consumer interest can provide meaningful insights for forecasting, marketing strategy, and business decision making.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px">
+          <div class="res-stat" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)"><div class="res-stat-num" style="color:var(--mist)">Data Sources</div><div class="res-stat-label" style="color:rgba(255,255,255,.4)">GOOGLE TRENDS • YAHOO FINANCE • SOCIAL SIGNALS</div></div>
+          <div class="res-stat" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)"><div class="res-stat-num" style="color:var(--mist)">Analysis</div><div class="res-stat-label" style="color:rgba(255,255,255,.4)">TIME SERIES ANALYSIS • MACHINE LEARNING • TREND FORECASTING • PATTERN RECOGNITION</div></div>
+          <div class="res-stat" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)"><div class="res-stat-num" style="color:var(--eucalyptus)">Tools</div><div class="res-stat-label" style="color:rgba(255,255,255,.4)">PYTHON • PANDAS • SCIKIT-LEARN • EXCEL</div></div>
+        </div>
+        <button class="btn btn-sage" onclick="go('research')">View all Research→</button>
+      </div>
+      <div>
+        <div class="nb-entry" style="border-color:var(--eucalyptus);background:rgba(143,181,160,.1)"><div class="nb-d" style="color:rgba(255,255,255,.3)">June 2026</div><div class="nb-h" style="color:var(--white)">The absence of attention can be just as meaningful as its presence.</div><div class="nb-b" style="color:rgba(255,255,255,.5)">Not every successful product experiences a surge in online interest. Some categories continue to perform because of brand equity, craftsmanship, and long-term consumer trust rather than continuous digital visibility.</div></div>
+        <div class="nb-entry" style="border-color:var(--mist-deep);background:rgba(127,168,184,.08)"><div class="nb-d" style="color:rgba(255,255,255,.3)">May 2026</div><div class="nb-h" style="color:var(--white)">Luxury doesn't compete on speed. It competes on interpretation.</div><div class="nb-b" style="color:rgba(255,255,255,.5)">The question isn't who discovers a trend first, but who translates it into a product, story, and experience that remains culturally relevant long after the initial excitement has passed.</div></div>
+        <div class="nb-entry" style="border-color:var(--sage-light);background:rgba(125,155,118,.08)"><div class="nb-d" style="color:rgba(255,255,255,.3)">April 2026</div><div class="nb-h" style="color:var(--white)">Search data measures curiosity. Purchasing measures conviction.</div><div class="nb-b" style="color:rgba(255,255,255,.5)">The gap between those two moments may be where the most valuable commercial insight exists. Understanding why interest converts into demand is often more important than measuring how much attention a trend receives.</div></div>
+                <div class="nb-entry" style="border-color:var(--sage-light);background:rgba(125,155,118,.08)"><div class="nb-d" style="color:rgba(255,255,255,.3)">April 2026</div><div class="nb-h" style="color:var(--white)">Timing can create more value than the trend itself.</div><div class="nb-b" style="color:rgba(255,255,255,.5)">The success of a collection often depends less on what is launched and more on when it enters the conversation. A well-timed product can feel inevitable, while the same product introduced too early or too late may never reach its potential.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 · PROJECTS -->
+  <div class="section" style="background:var(--cream)">
+    <span class="eyebrow">Ideas in Action</span>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-sub">Finding signals where others see noise.</p>
+    <div class="proj-grid">
+      <div class="proj-card">
+        <div class="project-img img-ph" style="background-image:url('rodeo.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+          <span class="label sage" style="position:relative;z-index:1">Research + Strategy</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Fashion Intelligence &amp; Commercialization Report</div>
+          <div class="proj-summary">I wanted to understand why some fashion trends become successful while others disappear just as quickly. Through industry research, consumer behavior, and brand case studies, I explored how trends move from cultural interest to commercial success. The project helped me connect fashion with strategy, showing how data and consumer insights can support better business decisions rather than relying on intuition alone.</div>
+          <div class="proj-tags"><span class="label sage">Fashion</span><span class="label mist">Consumer Behavior</span><span class="label cream">Strategy</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="project-img img-ph" style="background-image:url('roiexcel.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+          <span class="label mist" style="position:relative;z-index:1">Finance + Analytics</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">ROI Forecasting &amp; Capital Efficiency Model</div>
+          <div class="proj-summary">This project focused on building an Excel model to evaluate different investment decisions and compare their financial impact. I worked on forecasting returns, testing different scenarios, and understanding how capital can be allocated more efficiently. It strengthened my understanding of financial modeling while showing how numbers can support practical business decisions and identified 12% potential cost savings and improved return projections by 18%.</div>
+          <div class="proj-tags"><span class="label mist">Excel</span><span class="label cream">ROI</span><span class="label cream">Financial Modeling</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="project-img img-ph" style="background-image:url('AIanalysis.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+          <span class="label cream" style="position:relative;z-index:1">Policy + Research</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">AI Policy Analysis</div>
+          <div class="proj-summary">I explored how governments and organizations are responding to the rapid growth of artificial intelligence. By comparing different policy frameworks and research reports, I looked at the balance between encouraging innovation and managing potential risks. The project made me think beyond technology itself and consider how policy decisions shape businesses, markets, and society.</div>
+          <div class="proj-tags"><span class="label cream">AI</span><span class="label cream">Policy</span><span class="label mist">Research</span></div>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="project-img img-ph" style="background-image:url('studycafe.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+          <span class="label sage" style="position:relative;z-index:1">Entrepreneurship</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-title">Study Café — Business Model &amp; CVP Analysis</div>
+          <div class="proj-summary">I developed a complete business plan for a study café, beginning with market research and competitor analysis before building the financial model. I used Cost-Volume-Profit (CVP) analysis to estimate the break-even point, evaluate different pricing scenarios, and understand how changes in sales volume would affect profitability. I also prepared a three-year cash flow forecast and financial projections, bringing together strategy, operations, and finance into one business model.</div>
+          <div class="proj-tags"><span class="label sage">Business Planning</span><span class="label cream">CVP</span><span class="label cream">Strategy</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- 3 · FEATURED MOODBOARD -->
+  <div class="section" style="background:var(--cream)">
+    <span class="eyebrow">Visual Archive</span>
+    <h2 class="section-title">Trend Moodboard</h2>
+    <p class="section-sub">A monthly visual collection of fashion, travel, architecture, texture, and the images</p>
+    <p class="section-sub"> Summer 2026 </p>
+    <div class="moodboard">
+      <div class="mb-item tall" style="grid-row:span 2">
+       <div class="mb-img tall img-ph" style="background-image:url('fashionmonthly.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;height:100%">          
+          <span class="mb-cap" style="position:absolute;bottom:14px;left:14px;color:var(--moss)">Fashion</span>
+        </div>
+      </div>
+      <div class="mb-item">
+        <div class="mb-img img-ph" style="background-image:url('moodboard.jpg');background-size:cover;background-position:center;min-height:180px">
+          <span class="mb-cap" style="color:var(--mist-deep)">Moodboard</span>
+        </div>
+      </div>
+      <div class="mb-item">
+        <div class="mb-img img-ph" style="background-image:url('travel.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;min-height:180px">
+          <span class="mb-cap" style="color:var(--smoke)">Travel</span>
+        </div>
+      </div>
+      <div class="mb-item wide" style="grid-column:span 2">
+        <div class="mb-img img-ph" style="background-image:url('inspire.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;min-height:160px">
+          <span class="mb-cap" style="color:rgba(255,255,255,.5)">Inspiration</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <button class="btn btn-sage" onclick="go('aesthetics')">View full archive →</button>
+    </div>
+  </div>
+
+  
+  <!-- 4 · LATEST OPINIONS -->
+  <div class="section" style="background:var(--plaster)">
+    <span class="eyebrow">Latest</span>
+    <h2 class="section-title">Opinions</h2>
+    <p class="section-sub">All the things I'm thinking about and writing through <3.</p>
+    <div class="opinions-grid">
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion1.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+          <span class="label sage" style="position:absolute;bottom:12px;left:12px">Is Culture Ready Before Consumers Are?</span>
+        </div>
+        <div class="op-body">
+          <div class="op-date">May 2026</div>
+          <div class="op-title">Is Culture Ready Before Consumers Are?</div>
+          <div class="op-teaser">Most brands measure demand after people have already started buying. I'm more interested in what happens before that.Sometimes an idea shows up in different places at the same time, a runway show, a few creators, store displays, or even conversations online. None of these signals mean much on their own, but together they might suggest that culture is moving in a certain direction. I want to explore whether those early patterns can tell us something before sales data does.
+</div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion6.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+          <span class="label mist" style="position:absolute;bottom:12px;left:12px">Can Athleisure Become the New Comfort Luxury?</span>
+        </div>
+        <div class="op-body">
+          <div class="op-date"> June 2026</div>
+          <div class="op-title">Can Athleisure Become the New Comfort Luxury?</div>
+          <div class="op-teaser">I've been thinking about athleisure a lot lately. Right now most people still see it as something you wear to the gym or when you are running errands. But I don't think that is because of the clothes themselves. I think it is because that is how we have been taught to see them.If brands started presenting athleisure differently with better storytelling, stronger branding, and a more elevated lifestyle around it, I genuinely think it could become a luxury category. Comfort is becoming more valuable every year. Maybe luxury does not have to mean dressing up anymore. Maybe it can simply mean feeling good in what you wear every day.</div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion3.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+          <span class="label cream" style="position:absolute;bottom:12px;left:12px">The Accessories We Keep Say More Than the Clothes We Replace
+</span>
+        </div>
+        <div class="op-body">
+          <div class="op-date"> June 2026 </div>
+          <div class="op-title">The Accessories We Keep Say More Than the Clothes We Replace
+</div>
+          <div class="op-teaser">Fashion changes with seasons, but the accessories we reach for every day often stay the same. I think that's because they're no longer just products, they're habits. Maybe the real measure of a successful accessory isn't how many people buy it, but how many people continue choosing it long after the excitement of the purchase has faded.</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <button class="btn btn-outline" onclick="go('opinions')">All opinions →</button>
+    </div>
+  </div>
+  
+  <!-- 8 · INTERACT -->
+  <div class="section" style="background:var(--cream)">
+    <span class="eyebrow">Interaction Corner</span>
+    <h2 class="section-title">Let's talk</h2>
+    <p class="section-sub">Questions, topic ideas, polls, comments, this is the part that talks back.</p>
+    <p class="section-sub"> Contact me: Gmail - shahchelsy@gmail.com, LinkedIn - https://www.linkedin.com/in/chelsy-shah/, GitHub - https://github.com/shahchelsy</p>
+    <div class="interact-grid">
+      <div class="int-card">
+        <div class="int-title">Ask me anything</div>
+        <div class="int-sub">Whether it's a project, opportunity, or just an interesting conversation, I'd love to hear from you.</div>
+        <div id="hqf">
+          <textarea class="int-ta" id="hqi" placeholder="Your question..."></textarea>
+          <button class="btn btn-navy" onclick="send('hqi','hqf','hqt')" style="width:100%">Send question →</button>
+        </div>
+        <div id="hqt" class="ty-msg" style="display:none">Received — thank you.</div>
+      </div>
+      <div class="int-card">
+        <div class="int-title">Vote: what should I research next?</div>
+        <div class="int-sub">Help shape the next article or research project.</div>
+        <div id="ph">
+          <div class="poll-opt" onclick="vt(this,'ph')">Why do some luxury products become heirlooms?<span style="flex:1"></span><span class="p-pct">38%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">Can AI predict what becomes "timeless"?<span style="flex:1"></span><span class="p-pct">29%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">Is minimalism becoming the new status symbol?<span style="flex:1"></span><span class="p-pct">19%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">Can AI measure cultural momentum?<span style="flex:1"></span><span class="p-pct">14%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-grid">
+      <div><div class="footer-name">Chelsy<span style="color:var(--sage)">.</span></div><div class="footer-tagline">Business Analytics &amp; Finance student at Rutgers, exploring the intersection of fashion, data, consumer behavior, and strategy.</div></div>
+      <div><div class="footer-col-title">Navigate</div><button class="footer-link" onclick="go('about')">About</button><button class="footer-link" onclick="go('opinions')">Opinions</button><button class="footer-link" onclick="go('research')">Research</button><button class="footer-link" onclick="go('aesthetics')">Aesthetics</button></div>
+      <div><div class="footer-col-title">Connect</div><button class="footer-link" onclick="go('work')">Work</button><button class="footer-link" onclick="go('interact')">Reader Mail</button><button class="footer-link">shahchelsy@gmail.com</button><button class="footer-link">LinkedIn ↗</button></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah. All rights reserved.</span><span class="footer-copy">Rutgers University · Class of 2027</span></div>
+  </div>
+</div><!-- /home -->
+
+<!-- ████████ GAMES ████████ -->
+<div id="p-games" class="pg">
+  <div style="padding:48px 28px;background:var(--plaster)">
+    <span class="label navy">GAMES</span>
+    <h1 style="font-family:'Playfair Display',serif;
+               font-size:36px;
+               color:var(--navy);
+               margin:24px 0 12px;">
+      Let's make it interesting!!
+    </h1>
+    <p style="font-size:13px;
+              line-height:1.85;
+              color:var(--smoke);
+              margin-bottom:36px;">
+      A little space to test your instincts,
+      challenge your decisions, and discover
+      how you think.
+    </p>
+    
+<div id="games-container">
+
+  <div class="strategy-game-grid">
+
+    <!-- GAME 1 -->
+    <button type="button"
+            class="strategy-game-card"
+            id="open-strategist-quiz">
+      <span class="strategy-game-number">
+        01 / PERSONALITY QUIZ
+      </span>
+
+      <h2>What Kind of Strategist Are You?</h2>
+
+      <p>
+        Are you a visionary, an analyst, a risk taker,
+        or a mastermind? Lets find out!! Answer five quick questions
+        to discover how you naturally think and
+        make decisions.
+      </p>
+
+      <span class="strategy-game-footer">
+        5 Questions · 2 Minutes
+      </span>
+
+      <span class="strategy-game-link">
+        Discover Your Type →
+      </span>
+
+    </button>
+
+    <!-- GAME 2 -->
+    <button type="button"
+            class="strategy-game-card"
+            id="open-brand-game">
+
+      <span class="strategy-game-number">
+        02 / BUSINESS SIMULATION
+      </span>
+
+      <h2>Build Your Brand</h2>
+      <p>
+        Launch your own hypothetical brand,
+        choose your competitive strategy,
+        manage a $100,000 budget, and discover
+        how your decisions shape your business.
+      </p>
+      <span class="strategy-game-footer">
+        5 Decisions · 4 Minutes
+      </span>
+      <span class="strategy-game-link">
+        Start Building →
+      </span>
+   </button>
+  </div>
+  <div id="strategy-game-play-area" hidden></div>
+</div>
+
+  </div>
+
+</div>
+<!-- END GAMES PAGE -->
+
+<!-- ████████ ABOUT ████████ -->
+<div id="p-about" class="pg">
+  <div class="about-hero">
+    <div class="ab-left">
+      <span class="eyebrow" style="color:var(--eucalyptus)">Profile</span>
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,64px);font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin:12px 0 20px">Chelsy<br><em style="color:var(--sage-light);font-style:normal">Shah</em></h1>
+      <div style="font-size:12px;color:rgba(255,255,255,.5);line-height:2">Business Analytics with Information Technology &amp; Finance<br>Rutgers University · Class of 2027<br> New Brunswick, NJ</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+        <span class="label" style="background:rgba(125,155,118,.2);color:var(--sage-light)">Fashion Intelligence</span>
+        <span class="label" style="background:rgba(184,205,214,.15);color:var(--mist)">Business Analytics</span>
+        <span class="label" style="background:rgba(143,181,160,.15);color:var(--eucalyptus)">Finance</span>
+      </div>
+    </div>
+    <div class="ab-right">
+  <div class="img-ph" style="width:100%;height:100%;min-height:400px;background:url('profile.jpg') center/cover no-repeat">
+  </div>
+</div>
+  </div>
+  <div class="about-content">
+    <p class="about-body" style="font-size:15px;font-family:'Playfair Display',serif;font-style:italic;color:var(--navy);margin-bottom:28px"> Hi, I'm Chelsy. Welcome to my little corner of the internet, where strategy, analytics, and curiosity come together to tell stories through data.</p>
+    <div class="about-quote">"I believe data has aesthetics, numbers tell stories, and the most interesting work happens with an eye for detail."</div>
+  <p class="about-body"> "Fashion changes, but style endures." — Coco Chanel 
+  </p> 
+    <p class="about-body"> Fashion has always been more than clothing to me. 
+    </p> 
+    <p class="about-body"> It has always been a language. Some people see an outfit. I see confidence, identity, culture, timing, and the choices people make before they ever say a word. Fashion has this quiet ability to change how someone carries themselves. It is never about fitting into a trend or becoming someone else. It is about feeling comfortable enough to become more of yourself. When you feel confident in what you wear, you move differently, speak differently, and often believe in yourself a little more. </p> <p class="about-body"> As I became more interested in fashion, I also became fascinated by the business behind it. I found myself asking questions that went far beyond collections and runway shows. Why do some trends disappear within weeks while others influence an entire generation? Why does one campaign become part of popular culture while another is forgotten? What makes people suddenly want the same product at the same time? </p> <p class="about-body"> Those questions slowly introduced me to another world. A world of consumer behavior, marketing, forecasting, finance, and data. 
+    </p> 
+    <p class="about-body"> Behind every successful fashion house are thousands of decisions supported by numbers. There are analysts forecasting demand months in advance, marketers understanding exactly who they are speaking to, buyers predicting what customers will love next, and strategists deciding when a collection should launch and where it should be seen. Great fashion is creative, but great fashion businesses are incredibly analytical. 
+    </p> 
+    <p class="about-body"> "Fashion is a language that creates itself in clothes to interpret reality." Karl Lagerfeld once said, I like to think this language can also be predicted through data and modified in a better way. </p>
+    <p class="about-body"> Every search trend, every social media conversation, every shift in consumer preference tells a story. Numbers are not just spreadsheets to me. They are evidence of changing behavior. They reveal how culture evolves, how markets react, and how brands can understand people before people fully understand themselves.
+    </p> 
+    <p class="about-body"> That curiosity is what led me to study Business Analytics with IT and Finance alongside my interest in brand strategy. I enjoy finding patterns, asking questions, and connecting creativity with commercial strategy. The intersection of these worlds is where I feel most inspired. 
+    </p> 
+    <p class="about-body"> This website is my digital notebook, a place where I document observations, research ideas, opinions, visual inspiration, and projects that explore fashion through both a creative and analytical lens. Some pages may begin with a runway show, while others begin with a dataset. Both are equally exciting to me because they tell different parts of the same story.
+    </p> 
+    <p class="about-body"> As Miuccia Prada once said, "What you wear is how you present yourself to the world." I would add that understanding why people choose to present themselves that way is just as fascinating. 
+    </p>
+    <div class="about-img-row">
+      <div class="img-ph on-light" style="height:200px;background:url('about1.jpg') center/cover no-repeat;border-radius:var(--r)"></div>
+      <div class="img-ph on-light" style="height:200px;background:url('about2.jpg') center/cover no-repeat;border-radius:var(--r)"></div>
+    </div>
+<p class="about-body">
+Beyond my coursework at Rutgers University, I enjoy exploring the business of fashion through research, data, and observation. My interests lie at the intersection of consumer behavior, trend forecasting, marketing strategy, and finance, where creativity is supported by evidence and every decision is backed by insight.
+</p>
+
+<p class="about-body">
+This portfolio is a reflection of that journey. It brings together the projects I've built, the research I'm pursuing, and the ideas that continue to shape my perspective. Whether I'm analyzing emerging trends, studying financial markets, or exploring how consumer behavior influences brands, I'm always looking for ways to connect creativity with commercial strategy.
+</p>
+
+<p class="about-body">
+My goal is to build a career where I can contribute to the future of the fashion industry by helping brands make smarter, more informed decisions through data, innovation, and strategic thinking.
+</p>
+    <div style="margin-top:32px;padding:24px;background:var(--sage-mist);border-radius:var(--r)">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Education</div>
+      <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:4px">Rutgers, State University of New Jersey</div>
+      <div style="font-size:12px;color:var(--smoke)">B.S. Business Analytics with Information Technology &amp; IT, Finance · GPA 3.7 · Expected May 2027</div>
+    </div>
+    <div style="margin-top:32px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Skills</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span class="label sage">Python</span><span class="label sage">SQL</span><span class="label sage">R</span><span class="label mist">Tableau</span><span class="label mist">Excel</span><span class="label mist">AI Tools</span><span class="label cream">Forecasting</span><span class="label cream">Financial Modeling</span><span class="label cream">Leadership</span> <span class="label sage">HTML</span> <span class="label sage">Risk Assessment</span> <span class="label sage">Research & Reporting</span><span class="label mist">Detail Orientation</span><span class="label mist">Strategic Planning</span><span class="label mist">Communication</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div>
+  </div>
+</div>
+
+
+<!-- ████████ RESEARCH ████████ -->
+<div id="p-research" class="pg">
+  <div style="background:var(--cream);padding:60px 28px 48px;border-bottom:1px solid var(--sourdough)">
+    <span class="eyebrow">Living Notebook</span>
+    <h1 class="section-title" style="font-size:52px">Research</h1>
+    <p class="section-sub">Every project starts with a question. This is where I explore it, test it, and document what I learn along the way.</p>
+  </div>
+  <div style="padding:48px 28px;background:var(--plaster)">
+
+    
+
+<!-- FEATURED PROJECT: ROI FORECASTING -->
+
+<section class="roi-project" id="roi-project">
+
+  <div class="roi-topline">
+    <span class="label navy">Finance + Analytics </span>
+    <span class="roi-eyebrow">Featured Project</span>
+  </div>
+
+  <h2 class="roi-heading">
+    ROI Forecasting &amp; Capital Efficiency Model
+  </h2>
+
+  <p class="roi-subheading">
+    Analyzing spending, sales performance, and financial scenarios
+    to support more efficient capital allocation.
+  </p>
+
+  <!-- PROJECT OVERVIEW -->
+
+  <div class="roi-section-label">PROJECT OVERVIEW</div>
+
+  <p class="roi-text">
+    How can a business decide where to invest its budget
+    to generate stronger returns? This project examines
+    the relationship between spending, sales performance,
+    and financial outcomes through an Excel-based
+    forecasting and scenario analysis model.
+  </p>
+
+  <p class="roi-text">
+    The objective was to evaluate how changes in spending
+    and sales assumptions affect projected performance,
+    compare alternative budget allocations, and identify
+    opportunities for more informed capital allocation.
+    Rather than relying on a single forecast, the model
+    examines different financial scenarios to understand
+    the potential consequences of each decision.
+  </p>
+
+  <!-- METHODOLOGY -->
+
+  <div class="roi-section-label">METHODOLOGY &amp; TOOLS</div>
+
+  <p class="roi-text">
+    I used Microsoft Excel to organize and analyze financial
+    data, explore relationships between spending and sales,
+    and compare the results of alternative scenarios.
+    Exploratory data analysis helped establish patterns
+    in the underlying data before evaluating the model outputs.
+  </p>
+
+  <p class="roi-text">
+    The workbook brings together data analysis, forecasting,
+    scenario comparisons, financial summaries, and model
+    diagnostics. These components allow the results to
+    be examined from different perspectives rather than
+    relying on a single projected outcome.
+  </p>
+
+  <div class="roi-method-grid">
+
+    <div class="roi-method-item">
+      <strong>Data Analysis</strong>
+      <p>
+        Exploring historical patterns and relationships
+        between spending and sales performance.
+      </p>
+    </div>
+
+    <div class="roi-method-item">
+      <strong>Scenario Modeling</strong>
+      <p>
+        Comparing alternative assumptions to understand
+        how financial outcomes may change.
+      </p>
+    </div>
+
+    <div class="roi-method-item">
+      <strong>Financial Evaluation</strong>
+      <p>
+        Reviewing model outputs to support budget
+        planning and capital allocation decisions.
+      </p>
+    </div>
+
+    <div class="roi-method-item">
+      <strong>Model Diagnostics</strong>
+      <p>
+        Examining forecasting reliability and
+        the limitations of model-based estimates.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- MODEL EVIDENCE -->
+
+  <div class="roi-section-label">MODEL EXPLORATION &amp; RESULTS</div>
+
+  <p class="roi-text">
+    The following worksheets document the analytical
+    process, from exploring the underlying data to
+    comparing scenarios and evaluating the model.
+    Each addresses a different part of the
+    financial decision-making process.
+  </p>
+
+  <div class="roi-gallery">
+
+    <!-- 01 RESULTS -->
+    <figure class="roi-chart-card">
+      <a href="results.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="results.jpg"
+             alt="ROI forecasting results dashboard"
+             loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="roi-number">01 / RESULTS</span>
+        <h3>Financial Model Outputs</h3>
+
+        <p>
+          This worksheet brings the analysis together
+          into a financial dashboard, making it easier
+          to compare budget allocations, spending,
+          sales, and projected outcomes.
+        </p>
+
+        <p>
+          The purpose is to translate model calculations
+          into information that can support investment
+          and budget planning decisions.
+        </p>
+      </figcaption>
+    </figure>
+
+    <!-- 02 SCENARIOS -->
+    <figure class="roi-chart-card">
+      <a href="scenarios.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="scenarios.jpg"
+             alt="Financial scenarios worksheet"
+             loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="roi-number">02 / SCENARIOS</span>
+        <h3>Scenario Comparison</h3>
+
+        <p>
+          This worksheet provides the underlying
+          scenario data used to compare different
+          spending and sales assumptions.
+        </p>
+
+        <p>
+          It helps examine how changes in budget
+          allocation can affect projected outcomes
+          and illustrates the financial trade-offs
+          between alternative decisions.
+        </p>
+      </figcaption>
+    </figure>
+
+    <!-- 03 EDA -->
+    <figure class="roi-chart-card">
+      <a href="eda.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="eda.jpg"
+             alt="Exploratory data analysis"
+             loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="roi-number">03 / DATA EXPLORATION</span>
+        <h3>Exploratory Data Analysis</h3>
+
+        <p>
+          Before interpreting forecasts, it is
+          important to understand the data behind them.
+          This worksheet explores spending patterns,
+          sales behavior, and relationships within
+          the dataset.
+        </p>
+
+        <p>
+          These observations provide context for
+          understanding model outputs and identifying
+          patterns worth investigating further.
+        </p>
+      </figcaption>
+    </figure>
+
+    <!-- 04 DIAGNOSTICS -->
+    <figure class="roi-chart-card">
+      <a href="modeldiagnostics.jpg" target="_blank"
+         rel="noopener noreferrer">
+        <img src="modeldiagnostics.jpg"
+             alt="Model diagnostics worksheet"
+             loading="lazy">
+      </a>
+
+      <figcaption>
+        <span class="roi-number">04 / MODEL DIAGNOSTICS</span>
+        <h3>Model Evaluation</h3>
+
+        <p>
+          Forecasting results should not be interpreted
+          without considering their reliability.
+          The diagnostic analysis provides a way to
+          examine how the model performs and where
+          its estimates may be limited.
+        </p>
+
+        <p>
+          This matters because a financial decision
+          should account for uncertainty rather than
+          treating projected values as guarantees.
+        </p>
+      </figcaption>
+    </figure>
+
+  </div>
+
+  <!-- CONCLUSION -->
+
+  <div class="roi-section-label">CONCLUSION &amp; FUTURE APPLICATION</div>
+
+  <p class="roi-text">
+    The analysis demonstrates how spending and sales
+    assumptions can be evaluated together to compare
+    financial scenarios. Bringing these comparisons
+    into one model makes it easier to assess competing
+    budget decisions and understand the implications
+    of different allocation strategies.
+  </p>
+
+  <p class="roi-text">
+    Going forward, the model could be developed further
+    by incorporating updated financial data, expanding
+    the range of scenarios, and testing forecast
+    performance against actual outcomes. This would
+    help move the analysis beyond one-time projections
+    toward a more continuous financial planning
+    and decision-support process.
+  </p>
+
+  <!-- STRATEGIC TAKEAWAY -->
+
+  <div class="roi-takeaway">
+    <span class="roi-takeaway-label">
+      STRATEGIC TAKEAWAY
+    </span>
+    <p>
+      Financial forecasting creates value when it
+      helps businesses make better decisions, not
+      simply when it produces a projected number.
+      The real advantage lies in understanding the
+      trade-offs between spending, expected returns,
+      risk, and the efficient use of available capital.
+    </p>
+  </div>
+
+  <div class="roi-tag-row">
+    <span class="label sage">Microsoft Excel</span>
+    <span class="label mist">Financial Modeling</span>
+    <span class="label cream">Scenario Analysis</span>
+    <span class="label sage">Forecasting</span>
+    <span class="label mist">Capital Allocation</span>
+  </div>
+
+</section>
+
+<hr class="roi-project-divider">
+
+<!-- END FEATURED ROI PROJECT -->
+
+
+    
+    <div class="research-block" style="margin-bottom:48px">
+      <div>
+        <span class="label navy" style="margin-bottom:16px;display:inline-block">Ongoing · 2026</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:10px">Fashion Trend Shocks &amp; Financial Market Behavior</h2>
+        <p style="font-size:12px;font-style:italic;color:var(--smoke);margin-bottom:20px">How AI-detected signals predict brand performance and investor response</p>
+        <p style="font-size:13px;color:var(--smoke);line-height:1.85;margin-bottom:20px">This project investigates the relationship between fashion trend signals and their downstream impact on consumer demand and financial markets. The research combines Google Trends, publicly available stock market data, and time series modeling to examine how digital attention evolves before measurable business outcomes occur. Using Python for data collection, preprocessing, visualization, and predictive analysis, the study applies statistical and machine learning techniques to identify patterns, estimate trend lag, and evaluate whether early consumer interest can provide meaningful insights for forecasting, marketing strategy, and business decision making.</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px">
+          <div class="res-stat"><div class="res-stat-num">Data Sources</div><div class="res-stat-label">Google Trends • Yahoo Finance • Social Signals</div></div>
+          <div class="res-stat"><div class="res-stat-num">Analysis</div><div class="res-stat-label">Time Series Analysis • Machine Learning • Trend Forecasting • Pattern Recognition</div></div>
+          <div class="res-stat"><div class="res-stat-num">Tools</div><div class="res-stat-label">Python • Pandas • Scikit-learn • Excel</div></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span class="label sage">Time Series</span><span class="label mist">AI</span><span class="label cream">Fashion</span><span class="label cream">Equity Markets</span><span class="label sage">Consumer Behavior</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Research Observations</div>
+        <div class="nb-entry"><div class="nb-d">1.</div><div class="nb-h">The absence of attention can be just as meaningful as its presence.</div><div class="nb-b">Not every successful product experiences a surge in online interest. Some categories continue to perform because of brand equity, craftsmanship, and long-term consumer trust rather than continuous digital visibility.</div></div>
+        <div class="nb-entry"><div class="nb-d">2.</div><div class="nb-h">Luxury doesn't compete on speed. It competes on interpretation.</div><div class="nb-b">The question isn't who discovers a trend first, but who translates it into a product, story, and experience that remains culturally relevant long after the initial excitement has passed.</div></div>
+        <div class="nb-entry"><div class="nb-d">3.</div><div class="nb-h">Search data measures curiosity. Purchasing measures conviction.</div><div class="nb-b">The gap between those two moments may be where the most valuable commercial insight exists. Understanding why interest converts into demand is often more important than measuring how much attention a trend receives.</div></div>
+        <div class="nb-entry"><div class="nb-d">3.</div><div class="nb-h">Timing can create more value than the trend itself.</div><div class="nb-b">The success of a collection often depends less on what is launched and more on when it enters the conversation. A well-timed product can feel inevitable, while the same product introduced too early or too late may never reach its potential.</div></div>
+        <div class="nb-entry" style="border-color:var(--sourdough);background:transparent;border-style:dashed">
+          <div class="nb-d">Add note</div>
+          <div class="nb-b" style="color:var(--muted)">Add your research notes via CMS — they appear here automatically.</div>
+        </div>
+      </div>
+    </div>
+    <hr style="border:none;border-top:1px solid var(--sourdough);margin-bottom:40px">
+    <div class="research-block" style="margin-bottom:32px">
+      <div>
+        <span class="label cream" style="margin-bottom:16px;display:inline-block">Completed · 2024</span>
+        <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--navy);line-height:1.15;margin-bottom:10px">Equity Markets, Investor Behavior &amp; SEBI</h2>
+        <p style="font-size:12px;font-style:italic;color:var(--smoke);margin-bottom:20px">Understanding how regulation, investor psychology, and market behavior influence financial decision making.</p>
+        <p style="font-size:13px;color:var(--smoke);line-height:1.85;margin-bottom:20px">This research examined how retail investors make financial decisions beyond traditional market fundamentals. Through survey analysis, regulatory research, and the study of SEBI's role in market development, I explored how investor psychology, financial literacy, and trust influence participation in India's capital markets. The project reinforced the importance of understanding human behavior alongside quantitative market data when evaluating investment decisions.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:7px"><span class="label mist">SEBI</span><span class="label mist">India</span><span class="label cream">Regulation</span><span class="label cream">Survey Research</span></div>
+      </div>
+      <div>
+        <div class="nb-entry"><div class="nb-d"> Observation 1. </div><div class="nb-h">Markets are driven by numbers, but participation is driven by trust.</div><div class="nb-b">Regulation can improve transparency, but investor confidence is ultimately shaped by credibility, consistency, and the belief that markets operate fairly. Trust often influences participation before returns do.</div></div>
+         <div class="nb-entry"><div class="nb-d">Observation 2. </div><div class="nb-h">The same information doesn't produce the same decision.</div><div class="nb-b">Two investors can interpret identical financial data in completely different ways. Risk perception, experience, and market sentiment often influence investment decisions just as much as the numbers themselves.</div></div>
+         <div class="nb-entry"><div class="nb-d"> Observation 3. </div><div class="nb-h">Financial literacy explains what investors know. Behavioral finance explains what they actually do.</div><div class="nb-b">Understanding markets requires more than studying financial statements. It also means recognizing how psychology, confidence, and decision making influence investor behavior.</div></div>
+      </div>
+    </div>
+    <div style="background:var(--sage-mist);border-radius:var(--r);padding:28px;margin-top:12px">
+      <div style="font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:16px">Ideas on the horizon</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Forecasting Desire Before Demand</div></div>
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Detecting Brand Fatigue Before Sales Decline</div></div>
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Measuring When a Trend Becomes Worth Investing In</div></div>
+        <div style="padding:16px;background:var(--white);border-radius:var(--r-sm)"><div style="font-family:'Playfair Display',serif;font-size:13px;color:var(--navy)">Mapping Digital Attention to Long-Term Brand Equity</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+
+<!-- ████████ OPINIONS ████████ -->
+<div id="p-opinions" class="pg">
+  <div style="background:var(--navy);padding:60px 28px 48px">
+    <span class="eyebrow" style="color:var(--eucalyptus)">Opinions · Column</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin:12px 0 16px">Things I<br><em style="color:var(--sage-light);font-style:normal">Actually Think</em></h1>
+    <p style="font-size:13px;color:rgba(255,255,255,.5);max-width:500px;line-height:1.75">All the things I'm thinking about and writing through <3.</p>
+  </div>
+  <div style="padding:40px 28px;background:var(--plaster)">
+    <div class="opinions-grid">
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion1.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">May 2026</div>
+          <div class="op-title">Is Culture Ready Before Consumers Are?</div>
+          <div class="op-full-ph">Most brands measure demand after people have already started buying. I'm more interested in what happens before that.Sometimes an idea shows up in different places at the same time, a runway show, a few creators, store displays, or even conversations online. None of these signals mean much on their own, but together they might suggest that culture is moving in a certain direction. I want to explore whether those early patterns can tell us something before sales data does.</div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion2.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">June 2026</div>
+          <div class="op-title">The Stores I Remember Rarely Have the Best Products</div>
+          <div class="op-full-ph">I've noticed that I remember stores because of how they made me feel, not because of a single item I saw. Lighting, music, layout, scent, staff interactions, and pacing often stay with me longer than the products themselves. It makes me wonder if luxury retail is designing memories as much as it is selling merchandise.</div>
+        </div>
+      </div>
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion3.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">June 2026</div>
+          <div class="op-title">The Accessories We Keep Say More Than the Clothes We Replace</div>
+          <div class="op-full-ph">Fashion changes with seasons, but the accessories we reach for every day often stay the same. I think that's because they're no longer just products,they become habits. Maybe the real measure of a successful accessory isn't how many people buy it, but how many people continue choosing it long after the excitement of the purchase has faded.</div>
+        </div>
+      </div>
+           <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion4.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">June 2026</div>
+          <div class="op-title">Create an Identity Before You Influence</div>
+          <div class="op-full-ph">I think one of the reasons so many people struggle with content is because they try to influence before people even know who they are. I don't think people follow someone just because they post every day. They stay because they recognize something about them. It could be a style, an aesthetic, the way they think, or simply the way they present themselves.If I ever created content seriously, I wouldn't start by talking about everything. I would spend time creating something people could immediately recognize. Once people know what to expect from you, they naturally start trusting your opinions. I think influence comes after identity, not the other way around.</div>
+        </div>
+      </div>
+
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion5.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">June 2026</div>
+          <div class="op-title">A Logo Isn't the Brand</div>
+          <div class="op-full-ph">Every time I hear someone say they are building a brand, the first thing they usually think about is the logo. I honestly think that is one of the last things that should happen. A logo cannot fix a weak idea and it definitely cannot tell people why they should care.To me, branding starts with understanding the market, knowing your customer, looking at competitors, and figuring out what value you are actually bringing. Once all of that is clear, then the visuals make sense. A logo is what people see first, but it should not be where the thinking starts.</div>
+        </div>
+      </div>
+
+      <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion6.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">July 2026</div>
+          <div class="op-title">Can Athleisure Become the New Comfort Luxury?</div>
+          <div class="op-full-ph">I've been thinking about athleisure a lot lately. Right now most people still see it as something you wear to the gym or when you are running errands. But I don't think that is because of the clothes themselves. I think it is because that is how we have been taught to see them.If brands started presenting athleisure differently with better storytelling, stronger branding, and a more elevated lifestyle around it, I genuinely think it could become a luxury category. Comfort is becoming more valuable every year. Maybe luxury does not have to mean dressing up anymore. Maybe it can simply mean feeling good in what you wear every day.</div>
+         </div>
+        </div>
+      
+        <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion7.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">August 2026</div>
+          <div class="op-title">The Intention that Matters</div>
+          <div class="op-full-ph"><p>As a brand competing to be better than others and fighting for your space in the market, there’s one thing that always goes unnoticed. The intention.</p><p>Yes, the Red ocean strategy is very effective when a brand is competing in an existing market, it shows how a brand is better than the alternatives. When I think of it from a strategic point of view, the only question that arises is that Does it give you Credibility? Sustainable audience? I’ve said and thought this before, as a brand credibility becomes your priority to grow and customers follow. Red Ocean definitely can build credibility but it’s often hard to earn because customers already have alternatives set up and thus higher expectations.</p><p>In 2026, consumers, especially Generation Z aren’t just comparing brands and products anymore. They’re comparing values and experiences that they believe in. The question every brand is asking is “How do we become better than everyone else?”. My opinion is to ask “What makes the competition irrelevant?”</p><p>This is where the blue ocean strategy steps in. Instead of competing in the same saturated market place, create a new demand. Reveal a need that the consumers never realized had a better solution and how the brand makes it convenient for them to own. This strategy, be it in marketing or in innovation, gives the creators and the consumers a large scale to provide and accept respectively. It helps the brand expand by attracting consumers who weren’t a part of that category in the first place and get the best deliverables out of it while sustaining to the brand value. The strongest brands aren’t successful because they’re better, but because they created their own definition of “better” and consumers felt that story. Sometimes, this means solving a problem no one else is solving, giving people what has been ignored by everyone else or even changing customer value in the first place.</p><p>As a consumer, I rarely make any of my purchasing decisions based on how Brand A is better than Brand B but on what value the brand holds, its story and how authentic it feels to me. A brand may have the best marketing and strategy but if it does not relate to the consumers on a personal level, numbers are affected in the end. This is what I mean by intention, not the intention to sell or compete but one to solve, stand for something and to create meaning beyond the product. Strategy determines how the brands compete. Intention earns trust, builds brand relevance and determines why consumers choose to stay.</p></div>
+        </div>
+       </div>
+       <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion8.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">October 2026</div>
+          <div class="op-title">Was choosing Kylie Jenner over the original Angels a fashion decision, or a strategic move?</div>
+          <div class="op-full-ph"><p>For years, the Victoria's Secret Fantasy Bra was almost a reward for the models who helped build the brand. Adriana Lima, Candice Swanepoel, Gisele Bündchen were women who had earned their place in VS history. So when the brand brought back the Fantasy Bra after eight years, why give its most expensive one yet to Kylie Jenner, someone who had never even walked its runway?</p><p>I think the answer is simple: Victoria's Secret wasn't just looking for a model. It was looking for an audience. In an interview with Vogue, Victoria's Secret's chief creative officer Adam Selman called Kylie a "cultural powerhouse." Someone who offered something beyond traditional runway recognition and had access to multiple consumer markets. Adding Jacob & Co. to the equation, the luxury jeweler created a record-breaking $50 million Fantasy Bra featuring 4,410 natural diamonds and a 75.54-carat yellow diamond. Suddenly, this wasn't just a lingerie show. It was a crossover between three powerful brands, each bringing its own identity, credibility, and audience.</p><p>From a business perspective, Victoria's Secret could potentially reach Kylie's beauty and lifestyle audience, Jacob & Co.'s luxury consumers, and its own existing customers through a single runway moment. It's a clever example of co-branding and audience expansion, with the potential to generate significant earned media without relying solely on conventional advertising.</p><p>But why not Adriana, Barbara, Candice, or the Hadid sisters?</p><p>My take is that choosing an established Angel would have celebrated the brand's history. Choosing Kylie challenged it. And that unexpected decision created an entirely different conversation. People weren't just discussing the return of the Fantasy Bra, they were debating who deserved to wear it.That doesn't mean controversy was necessarily the intention. But I do think Victoria's Secret understood that a surprise can introduce it to new audiences.</p><p>Of course, attention isn't the same as sales. Without post-show conversion or customer acquisition data, we can't know how commercially successful this decision actually was. Still, I find the shift fascinating. Victoria's Secret once used its runway to turn models into global celebrities. Now, it seems to be using global celebrities to make its runway culturally relevant again.</p></div>
+         </div>
+        </div>
+<div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion9.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">October 2026</div>
+          <div class="op-title">The Best-Cost Paradox: Why Having It All Isn't Always Winning?</div>
+          <div class="op-full-ph"><p>We've all been there. Wanting to be good at everything. The smartest person in the room, the most creative, the most successful, the one who somehow has everything figured out.</p><p>But at what point does wanting everything stop us from becoming something?</p><p>I came across an interesting concept in my strategic management class called "stuck in the middle."</p><p>In business, companies generally choose how they want to compete. Walmart focuses on keeping costs low with a broad target audience , while Nordstrom focuses on offering a more unique, premium experience. They aren’t trying to be everything to everyone. They understand what makes them valuable and gives them a competitive advantage in the long run.</p><p>Then there's the “best-cost strategy”, where a company tries to offer both quality (differentiation) and affordability (lower costs). If done well, this can be incredibly successful. But when a company can't deliver either effectively, it risks becoming stuck in the middle.</p><p>And I couldn't help but think about how similar this is to our lives.</p><p>We're constantly encouraged to do more. Learn five skills, pursue three careers, have multiple side hustles, build a personal brand, and somehow still find time to become the best version of ourselves.</p><p>Psychologically, I think a lot of this comes from comparison and the fear of missing out. We see someone succeeding at something and suddenly feel like we should be doing it too.</p><p>But being involved in four different worlds doesn't necessarily mean you're growing in all four. Sometimes, you're just dividing your attention four ways.</p><p>There's nothing wrong with having multiple interests. In fact, combining different skills can become your biggest strength. But there's a difference between strategically building on what you're good at and constantly starting something new because you're afraid of being left behind. It restricts you from mastering a skill or an interest to your maximum capacity if you keep quitting at an early stage. </p><p>Maybe the goal shouldn't be to master everything at once. Maybe it should be to become genuinely good at one thing, build confidence in it, and then expand.</p><p>Because just like businesses, we have limited resources. Ours happen to be time, energy, attention, and patience. </p><p>And if we try to give everything an equal share, what are we really giving our best to?</p></div>
+         </div>
+        </div>
+ <div class="op-card">
+        <div class="op-img img-ph" style="background-image:url('opinion10.jpg');background-size:cover;background-position:center;background-repeat:no-repeat">
+        </div>
+        <div class="op-body">
+          <div class="op-date">October 2026</div>
+          <div class="op-title">The Cost of Predicting what people want </div>
+          <div class="op-full-ph"><p>A trend is getting attention? I believe that doesn’t always mean it deserves a production order.
+Let me start with Google, TikTok and various social media trends. People look at a product, talk about it and some may even buy it. Does that mean the product guarantees a long term success? No, it does not. </p><p>Businesses often misconceive actual consumer demand and the consumer demand that a data sheet tries to feed it. In this generation consumer purchase attention and demand changes overnight. Talking about a product often means the consumer has barely made it to the early stages of the funner and that barely gives the brand a loyal sustainable customer in the long run.</p><p>What happens when a data sheet doesn’t match the actual demand? It creates a gap between the planned supply and the actual demand. This causes inventory accumulation, markdowns, holding costs increase, profit margins shrink and the working capital still is tied up. These fluctuations in demands may lead to an inefficient production schedule by the company.</p><p>What we fail to understand sometimes is that this forecasting error does not just mean entering a wrong number in the spreadsheet, it can change the companies’s profit percentage completely. According to The State of Fashion 2025 McKinsey and The Business of Fashion, the estimated sales value of excess fashion inventory in 2023 was $70-140B.</p><p>Lets take Zara’s example here. Instead of relying fully on seasonal forecasts, it uses smaller initial product runs, customer feedback and fast replenishment cycles to respond to actual demand. They don't predict what the consumers would want months before launching but they keep a flexible supply chain to quickly adapt to those changes. According to Inditex’s (Zara’s parent company) 2025 annual report, they reported a gross margin on 58.3% while emphasizing adapting its product offerings to consumer preferences.</p><p>Forecasting as important as it is, may not help in terms of accuracy alone, especially with such high fluctuating demands. The real problem begins when businesses become so committed to their intended production strategy that they leave little room for an emergent strategy when consumer preferences change.</p><p>In this situation, I believe investing in a supply chain unit might be an asset. In the end not knowing what the consumers want tomorrow may be okay, but not knowing how to respond to those demands may create a competitive disadvantage.</p></div>
+         </div>
+        </div>
+      </div>
+     </div>
+  <div style="padding:0 28px 28px;background:var(--plaster)">
+    <div style="background:var(--sage-mist);border-radius:var(--r);padding:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div><div style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;margin-bottom:6px">Suggest a topic</div><div style="font-size:12px;color:var(--smoke)">What should I write about next?</div></div>
+      <div style="display:flex;gap:10px;flex:1;max-width:420px">
+        <input class="int-input" style="margin:0;flex:1" id="ot" placeholder="Your topic idea...">
+        <button class="btn btn-sage" onclick="qs('ot','otty')">Send →</button>
+      </div>
+      <div id="otty" class="ty-msg" style="display:none;width:100%">Noted — thank you!</div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+</div>
+
+
+<!-- ████████ WORK ████████ -->
+<div id="p-work" class="pg">
+  <div style="background:var(--cream);padding:60px 28px 48px;border-bottom:1px solid var(--sourdough)">
+    <span class="eyebrow">Professional</span>
+    <h1 class="section-title" style="font-size:52px">Work</h1>
+    <p class="section-sub">The places that shaped how I solve problems, work with people, and think about business.</p>
+  </div>
+  <div style="padding:40px 28px;background:var(--plaster)">
+    <div class="work-item">
+      <div class="work-cover"style="background-image:url('corepharma.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(28,43,58,.8))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">01 · 2026</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">CorePharma LLC</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">Currently · June 2026 – August 2026</div>
+        <div class="work-title">Business Analyst Intern</div>
+        <div class="work-org">CorePharma LLC · New Jersey</div>
+        <div class="work-summary"> I'm helping Building intelligence in a regulated world. Forecasting models and analytics tools spanning manufacturing, quality, supply chain, and finance, where every dataset has its regulatory implications.</div>
+        <div class="work-ach">Working as a Business Analyst has given me the opportunity to understand how data supports day-to-day operations in a highly regulated manufacturing environment. I work across Manufacturing, Quality, Supply Chain, and Finance to build forecasting models and improve internal processes</div>
+        <div class="work-ach">One of my main project's designing an AI-powered training documentation system that replaces manual paperwork by automatically tracking employee training based on department, role, and required certifications. I'm also helping develop digital tools that improve documentation accuracy and make operational data easier to access for decision-making.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label sage">Forecasting</span><span class="label sage">Compliance</span><span class="label mist">Supply Chain</span><span class="label cream">Process Design</span></div>
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-cover" style="background-image:url('advisoryboard.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(28,43,58,.8))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">02 · 2026</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">Rutgers University</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">Currently · January 2026 – Present</div>
+        <div class="work-title">Rutgers Advisory Board Member</div>
+        <div class="work-org">Rutgers University · New Jersey</div>
+        <div class="work-summary">This role lets me represent the student perspective in conversations that shape the Rutgers Business School experience.</div>
+        <div class="work-ach">I contribute to discussions around academic programming, student initiatives, curriculum improvement, and professional development by sharing feedback from a student point of view.</div>
+        <div class="work-ach">I work with faculty, administrators, and student leaders to support ideas that improve communication, student engagement, and the overall learning experience.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label sage">Leadership</span><span class="label mist">Student Voice</span><span class="label cream">Strategy</span></div>
+      </div>
+    </div>
+    
+    <div class="work-item">
+      <div class="work-cover"
+     style="background-image:url('rurec.JPG');background-size:cover;background-position:center;background-repeat:no-repeat;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(74,103,65,.8))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">03 · 2025</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">Rutgers Recreation</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">Currently · Aug 2025 – Present</div>
+        <div class="work-title">Digital Marketing &amp; Brand Manager</div>
+        <div class="work-org">Rutgers Recreation · New Jersey</div>
+        <div class="work-summary">Brand strategy at scale — 10,000 people, one voice, constant data. Running content strategy across all platforms for one of campus's largest communities.</div>
+        <div class="work-ach">I manage content strategy across Instagram, TikTok, and Facebook for one of Rutgers' largest student communities, reaching more than 10,000 students. Beyond creating content, I analyze engagement data, audience behavior, and posting performance to understand what resonates with students and improve future campaigns.</div>
+        <div class="work-ach">Working closely with university departments and event teams has helped me strengthen my ability to combine creativity with analytics, resulting in a 25% increase in engagement during peak semesters while supporting the promotion of more than 30 campus events and programs.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label sage">Brand Strategy</span><span class="label mist">Content</span><span class="label cream">Analytics</span><span class="label cream">Digital Marketing</span></div>
+      </div>
+    </div>
+
+ <div class="work-item">
+      <div class="work-cover" style="background-image:url('mentor.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(28,43,58,.8))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">04 · 2024</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">Rutgers Women in Business</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">October 2024 – May 2025</div>
+        <div class="work-title">Peer Mentor</div>
+        <div class="work-org">Rutgers Women in Business · New Jersey</div>
+        <div class="work-summary">As a Peer Mentor, I helped underclassmen feel more prepared and supported while navigating academics, recruiting, and campus life.</div>
+        <div class="work-ach">I mentored a cohort of 5–10 students through regular check-ins, career guidance, internship preparation, and academic support.</div>
+        <div class="work-ach">I connected mentees with campus resources, industry events, alumni, and networking opportunities, contributing to a program with 90%+ mentee satisfaction.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label sage">Mentorship</span><span class="label mist">Leadership</span><span class="label cream">Community</span></div>
+      </div>
+    </div>
+    
+    <div class="work-item">
+      <div class="work-cover"style="background-image:url('marketcreators.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;">
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(transparent,rgba(127,168,184,.7))">
+          <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:4px">05 · 2024</div>
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff;line-height:1.1">Market Creators</div>
+        </div>
+      </div>
+      <div class="work-content">
+        <div class="work-role">May – July 2024 · Gujarat, India</div>
+        <div class="work-title">Financial Research Intern</div>
+        <div class="work-org">Market Creators Limited · India</div>
+        <div class="work-summary">This internship introduced me to financial research through real investor behavior rather than classroom theory. I designed and analyzed investor surveys to study risk appetite, investment preferences, and decision-making patterns while researching Indian equity markets and SEBI regulations.</div>
+        <div class="work-ach">My findings contributed to research on investor behavior and market participation, helping me understand how financial data, regulation, and consumer psychology influence investment decisions.</div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:14px"><span class="label mist">Behavioral Finance</span><span class="label mist">SEBI</span><span class="label cream">Research</span><span class="label cream">India</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+
+  <!-- ████████ AESTHETICS ████████ -->
+<div id="p-aesthetics" class="pg">
+  <div style="background:var(--cream);padding:60px 28px 40px;border-bottom:1px solid var(--sourdough)">
+    <span class="eyebrow">Visual Archive</span>
+    <h1 class="section-title" style="font-size:52px">Aesthetics</h1>
+    <p class="section-sub">Fashion · Travel · Moodboards · Architecture · Texture · Lifestyle · Inspiration</p>
+    <div class="aes-filter-bar" id="aesf">
+      <button class="btn btn-navy" onclick="fa('all',this)">All</button>
+      <button class="btn btn-outline" onclick="fa('Fashion',this)">Mood 1</button>
+      <button class="btn btn-outline" onclick="fa('Travel',this)">Mood 2</button>
+      <button class="btn btn-outline" onclick="fa('Moodboard',this)">Mood 3</button>
+      <button class="btn btn-outline" onclick="fa('Architecture',this)">Mood 4</button>
+      <button class="btn btn-outline" onclick="fa('Lifestyle',this)">Mood 5</button>
+    </div>
+  </div>
+  <div style="padding:28px;background:var(--plaster)">
+    <div class="masonry" id="aes-grid">
+      <div class="mason" data-cat="Fashion"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('fashion1.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics7.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Moodboard"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics10.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Architecture"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics9.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Lifestyle"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetic5.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Fashion"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetic4.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics13.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Moodboard"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics14.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Lifestyle"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics15.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Architecture"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics8.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Fashion"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics12.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics17.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetic3.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Lifestyle"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics11.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Fashion"><div class="mason-inner"><div class="mason-img img-ph on-light" style="height:300px;background-image:url('aesthetics6.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Travel"><div class="mason-inner"><div class="mason-img img-ph on-light"style="height:300px;background-image:url('aesthetics16.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+      <div class="mason" data-cat="Lifestyle"><div class="mason-inner"><div class="mason-img img-ph on-light"style="height:500px;background-image:url('fashion2.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;"></div></div></div>
+    </div>
+    </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+
+<!-- ████████ INTERACT ████████ -->
+<div id="p-interact" class="pg">
+  <div style="background:var(--sage);padding:60px 28px 48px">
+    <span class="eyebrow" style="color:rgba(255,255,255,.6)">Interaction Corner</span>
+    <h1 style="font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:.92;letter-spacing:-.04em;color:var(--white);margin:12px 0 16px">Let's<br><em style="font-style:normal">Talk</em></h1>
+    <p style="font-size:13px;color:rgba(255,255,255,.65);max-width:500px;line-height:1.75">Questions, topic suggestions, polls, reader comments — this is the part that's built for conversation.</p>
+    <p style="font-size:13px;color:rgba(255,255,255,.65);max-width:500px;line-height:1.75">Contact me: Gmail - shahchelsy@gmail.com, LinkedIn - https://www.linkedin.com/in/chelsy-shah/, GitHub - https://github.com/shahchelsy</p>
+  </div>
+  <div style="padding:48px 28px;background:var(--plaster)">
+    <div class="interact-grid" style="margin-bottom:24px">
+      <div class="int-card">
+        <div class="int-title">Ask me anything</div>
+        <div class="int-sub">Whether it's a project, opportunity, or just an interesting conversation, I'd love to hear from you.</div>
+        <div id="qf2">
+          <input class="int-input" id="qn2" placeholder="Your name (optional)">
+          <textarea class="int-ta" id="qb2" placeholder="Your question..."></textarea>
+          <button class="btn btn-navy" onclick="send('qb2','qf2','qt2')" style="width:100%">Send question →</button>
+        </div>
+        <div id="qt2" class="ty-msg" style="display:none">Received — thank you.</div>
+      </div>
+      <div class="int-card">
+        <div class="int-title">What should I research next?</div>
+        <div class="int-sub">Vote to help me prioritize my next investigation.</div>
+        <div id="pi">
+          <div class="poll-opt" onclick="vt(this,'pi')">Why do some luxury products become heirlooms?<span style="flex:1"></span><span class="p-pct">38%</span></div>
+          <div class="poll-opt" onclick="vt(this,'pi')">Can AI predict what becomes "timeless"?<span style="flex:1"></span><span class="p-pct">29%</span></div>
+          <div class="poll-opt" onclick="vt(this,'pi')">Is minimalism becoming the new status symbol?<span style="flex:1"></span><span class="p-pct">19%</span></div>
+          <div class="poll-opt" onclick="vt(this,'pi')">Can AI measure cultural momentum?<span style="flex:1"></span><span class="p-pct">14%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="interact-grid">
+      <div class="int-card">
+        <div class="int-title">Suggest a topic</div>
+        <div class="int-sub">What should I write about in Opinions? Fashion, business, culture, analytics — send your ideas.</div>
+        <div id="tf2">
+          <input class="int-input" id="ti2" placeholder="Your topic suggestion...">
+          <button class="btn btn-sage" onclick="send('ti2','tf2','tt2')" style="width:100%">Submit →</button>
+        </div>
+        <div id="tt2" class="ty-msg" style="display:none">Noted — thank you!</div>
+      </div>
+      <div class="int-card">
+        <div class="int-title">Reader Q&amp;A</div>
+        <div class="int-sub">Previously answered questions.</div>
+        <div class="qa-item" style="border:none;padding-bottom:0">
+          <div class="qa-q">"Do you think fashion takes data seriously?"</div>
+          <div class="qa-a">Both, in fascinating ways. Gut-driven decisions are often data-driven. The real opportunity is using AI to extend intuition forward.</div>
+          <div class="qa-attr">Anonymous · Answered May 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah</span><button class="footer-link" onclick="go('home')" style="color:var(--sage-light)">← Home</button></div></div>
+</div>
+
+<script> 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYXoRWELHndY2G-wbG7oG5L3UJzVUb3f4tMxcm5b8z_9H8ru25aE15rpihewXOEkLWLQ/exec';async function saveResponse(type, submission, name = 'Anonymous', source = 'Interact') {
+  const data = new URLSearchParams({type: type, name: name,submission: submission,source: source});
+  await fetch(SCRIPT_URL, {method: 'POST',mode: 'no-cors',body: data});
+}  
+function go(id){
+  const target = document.getElementById('p-' + id);
+  if (!target) {
+    alert('Trying to open: p-' + id);
+    return;
+  }
+  document.querySelectorAll('.pg').forEach(function(page){
+    page.classList.remove('on');
+    page.style.display = 'none';
+  });
+  target.classList.add('on');
+  target.style.display = 'block';
+  document.querySelectorAll('.nl').forEach(function(btn){
+    btn.classList.remove('on');
+  });
+  const activeNav = document.getElementById('n-' + id);
+  if (activeNav) {
+    activeNav.classList.add('on');
+  }
+  window.scrollTo(0, 0);
+}
+
+async function vt(el, aId) {
+  const poll = document.getElementById(aId);
+
+  if (!poll || poll.dataset.v) return;
+
+  const selected = el.childNodes[0].textContent.trim();
+  poll.dataset.v = 'pending';
+
+  try {
+    await saveResponse(
+      'Poll',
+      selected,
+      'Anonymous',
+      aId === 'ph' ? 'Home' : 'Interact'
+    );
+
+    poll.dataset.v = '1';
+    el.classList.add('voted');
+
+    poll.querySelectorAll('.poll-opt').forEach(option => {
+      const percentage = option.querySelector('.p-pct');
+
+      if (percentage) {
+        percentage.textContent =
+          option === el ? 'Selected' : '';
+      }
+    });
+
+  } catch (error) {
+    delete poll.dataset.v;
+    alert('Unable to submit your vote. Please try again.');
+  }
+}
+
+
+
+async function send(inputId, formId, tyId) {
+  const input = document.getElementById(inputId);
+
+  if (!input || !input.value.trim()) {
+    alert('Please enter a response.');
+    return;
+  }
+
+  const value = input.value.trim();
+  const type = inputId === 'ti2' ? 'Topic' : 'Question';
+
+  const nameField = document.getElementById('qn2');
+  const name = inputId === 'qb2' && nameField
+    ? nameField.value.trim() || 'Anonymous'
+    : 'Anonymous';
+
+  const source = inputId === 'hqi' ? 'Home' : 'Interact';
+
+  try {
+    await saveResponse(type, value, name, source);
+
+    document.getElementById(formId).style.display = 'none';
+
+    const message = document.getElementById(tyId);
+    message.textContent = 'Submission sent — thank you!';
+    message.style.display = 'block';
+
+  } catch (error) {
+    alert('Unable to send. Please try again.');
+  }
+}
+
+async function qs(inputId, tyId) {
+  const input = document.getElementById(inputId);
+
+  if (!input || !input.value.trim()) {
+    alert('Please enter a topic suggestion.');
+    return;
+  }
+
+  const topic = input.value.trim();
+
+  try {
+    await saveResponse('Topic', topic, 'Anonymous', 'Interact');
+
+    input.value = '';
+    input.placeholder = 'Suggestion sent!';
+
+    document.getElementById(tyId).style.display = 'block';
+
+  } catch (error) {
+    alert('Unable to send your suggestion. Please try again.');
+  }
+}
+
+function fa(cat,btn){
+  document.querySelectorAll('#aes-grid .mason').forEach(m=>{m.style.display=(cat==='all'||m.dataset.cat===cat)?'block':'none'});
+  document.querySelectorAll('#aesf .btn').forEach(b=>{b.className='btn btn-outline'});
+  btn.className='btn btn-navy';
+}
+go('home');
+</script> 
+<script src="strategy-quiz.js"></script>
+</body>
+</html>
+
 </style>
 </head>
 <body>
