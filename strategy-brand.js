@@ -9,36 +9,79 @@
 
   if (!startButton || !playArea || !chooser) return;
 
-  const industries = [
-    ["fashion", "Fashion & Accessories"],
-    ["beauty", "Beauty & Skincare"],
-    ["coffee", "Coffee & Lifestyle"],
-    ["technology", "Technology & Digital"]
-  ];
+  
+const industries = [
+  ["fashion", "Fashion & Luxury"],
+  ["finance", "Finance & Investment"],
+  ["consulting", "Consulting & Corporate Strategy"],
+  ["supplychain", "Supply Chain & Logistics"],
+  ["technology", "Technology & AI"],
+  ["beauty", "Beauty & Consumer Goods"],
+  ["healthcare", "Healthcare & Pharmaceuticals"],
+  ["media", "Media & Marketing"],
+  ["realestate", "Real Estate & Development"],
+  ["hospitality", "Food & Hospitality"]
+];
 
-  const markets = [
-    {
-      id: "value",
-      title: "The Value-Driven Market",
-      description: "Large customer base, strong price sensitivity, and intense competition.",
-      suitable: ["cost", "best"],
-      demand: 1.12
-    },
-    {
-      id: "premium",
-      title: "The Premium Market",
-      description: "Customers value design, quality, storytelling, and experience.",
-      suitable: ["different", "best"],
-      demand: 1.04
-    },
-    {
-      id: "niche",
-      title: "The Underserved Niche",
-      description: "A smaller audience with specialized needs and fewer direct rivals.",
-      suitable: ["focuscost", "focusdifferent"],
-      demand: 0.86
-    }
-  ];
+
+const markets = [
+  {
+    id: "mass",
+    title: "Mass Market",
+    description: "Large customer base and strong demand potential, but customers are price-sensitive and competition is intense.",
+    suitable: ["cost", "best"],
+    demand: 1.15
+  },
+  {
+    id: "premium",
+    title: "Premium Market",
+    description: "Customers value quality, exclusivity, expertise, and differentiated experiences.",
+    suitable: ["different", "focusdifferent"],
+    demand: 1.04
+  },
+  {
+    id: "niche",
+    title: "Underserved Niche",
+    description: "Serve a specialized audience with unmet needs and fewer direct competitors.",
+    suitable: ["focuscost", "focusdifferent"],
+    demand: 0.86
+  },
+  {
+    id: "emerging",
+    title: "Emerging Market",
+    description: "Enter a rapidly developing market with growth opportunities, but uncertain demand and infrastructure.",
+    suitable: ["different", "best"],
+    demand: 1.12
+  },
+  {
+    id: "saturated",
+    title: "Saturated Market",
+    description: "Compete in an established industry where customers have many alternatives and competitors are powerful.",
+    suitable: ["cost", "different", "best"],
+    demand: 0.95
+  },
+  {
+    id: "innovation",
+    title: "Innovation-Driven Market",
+    description: "Target customers who actively seek new technology, advanced products, and creative solutions.",
+    suitable: ["different", "focusdifferent"],
+    demand: 1.08
+  },
+  {
+    id: "enterprise",
+    title: "B2B Enterprise Market",
+    description: "Sell to businesses through larger contracts and long-term relationships, with demanding procurement processes.",
+    suitable: ["focusdifferent", "best"],
+    demand: 1.02
+  },
+  {
+    id: "sustainable",
+    title: "Sustainability-Focused Market",
+    description: "Appeal to customers who prioritize environmental responsibility, transparency, and ethical business practices.",
+    suitable: ["different", "focusdifferent"],
+    demand: 0.98
+  }
+];
 
   const strategies = [
     {
@@ -63,7 +106,7 @@
     },
     {
       id: "best",
-      title: "Best-Cost Strategy",
+      title: "Best-Cost Provider Strategy",
       description: "Balance attractive prices with features and quality customers value."
     }
   ];
@@ -281,8 +324,8 @@
     input.value = state.name;
     panel.appendChild(input);
 
-    panel.appendChild(
-      element("h3", "bb-section-heading", "Choose your industry")
+   panel.appendChild(
+  element("h3", "bb-section-heading", "Choose your business sector")
     );
 
     const grid = choiceGrid();
