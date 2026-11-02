@@ -915,6 +915,45 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
     </div>
   </div>
   
+  <!-- 8 · INTERACT -->
+  <div class="section" style="background:var(--cream)">
+    <span class="eyebrow">Interaction Corner</span>
+    <h2 class="section-title">Let's talk</h2>
+    <p class="section-sub">Questions, topic ideas, polls, comments, this is the part that talks back.</p>
+    <p class="section-sub"> Contact me: Gmail - shahchelsy@gmail.com, LinkedIn - https://www.linkedin.com/in/chelsy-shah/, GitHub - https://github.com/shahchelsy</p>
+    <div class="interact-grid">
+      <div class="int-card">
+        <div class="int-title">Ask me anything</div>
+        <div class="int-sub">Whether it's a project, opportunity, or just an interesting conversation, I'd love to hear from you.</div>
+        <div id="hqf">
+          <textarea class="int-ta" id="hqi" placeholder="Your question..."></textarea>
+          <button class="btn btn-navy" onclick="send('hqi','hqf','hqt')" style="width:100%">Send question →</button>
+        </div>
+        <div id="hqt" class="ty-msg" style="display:none">Received — thank you.</div>
+      </div>
+      <div class="int-card">
+        <div class="int-title">Vote: what should I research next?</div>
+        <div class="int-sub">Help shape the next article or research project.</div>
+        <div id="ph">
+          <div class="poll-opt" onclick="vt(this,'ph')">Why do some luxury products become heirlooms?<span style="flex:1"></span><span class="p-pct">38%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">Can AI predict what becomes "timeless"?<span style="flex:1"></span><span class="p-pct">29%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">Is minimalism becoming the new status symbol?<span style="flex:1"></span><span class="p-pct">19%</span></div>
+          <div class="poll-opt" onclick="vt(this,'ph')">Can AI measure cultural momentum?<span style="flex:1"></span><span class="p-pct">14%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-grid">
+      <div><div class="footer-name">Chelsy<span style="color:var(--sage)">.</span></div><div class="footer-tagline">Business Analytics &amp; Finance student at Rutgers, exploring the intersection of fashion, data, consumer behavior, and strategy.</div></div>
+      <div><div class="footer-col-title">Navigate</div><button class="footer-link" onclick="go('about')">About</button><button class="footer-link" onclick="go('opinions')">Opinions</button><button class="footer-link" onclick="go('research')">Research</button><button class="footer-link" onclick="go('aesthetics')">Aesthetics</button></div>
+      <div><div class="footer-col-title">Connect</div><button class="footer-link" onclick="go('work')">Work</button><button class="footer-link" onclick="go('interact')">Reader Mail</button><button class="footer-link">shahchelsy@gmail.com</button><button class="footer-link">LinkedIn ↗</button></div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah. All rights reserved.</span><span class="footer-copy">Rutgers University · Class of 2027</span></div>
+  </div>
+</div><!-- /home -->
 
 <!-- ████████ GAMES ████████ -->
 <div id="p-games" class="pg">
@@ -997,47 +1036,6 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
 
 </div>
 <!-- END GAMES PAGE -->
-  
-  <!-- 8 · INTERACT -->
-  <div class="section" style="background:var(--cream)">
-    <span class="eyebrow">Interaction Corner</span>
-    <h2 class="section-title">Let's talk</h2>
-    <p class="section-sub">Questions, topic ideas, polls, comments, this is the part that talks back.</p>
-    <p class="section-sub"> Contact me: Gmail - shahchelsy@gmail.com, LinkedIn - https://www.linkedin.com/in/chelsy-shah/, GitHub - https://github.com/shahchelsy</p>
-    <div class="interact-grid">
-      <div class="int-card">
-        <div class="int-title">Ask me anything</div>
-        <div class="int-sub">Whether it's a project, opportunity, or just an interesting conversation, I'd love to hear from you.</div>
-        <div id="hqf">
-          <textarea class="int-ta" id="hqi" placeholder="Your question..."></textarea>
-          <button class="btn btn-navy" onclick="send('hqi','hqf','hqt')" style="width:100%">Send question →</button>
-        </div>
-        <div id="hqt" class="ty-msg" style="display:none">Received — thank you.</div>
-      </div>
-      <div class="int-card">
-        <div class="int-title">Vote: what should I research next?</div>
-        <div class="int-sub">Help shape the next article or research project.</div>
-        <div id="ph">
-          <div class="poll-opt" onclick="vt(this,'ph')">Why do some luxury products become heirlooms?<span style="flex:1"></span><span class="p-pct">38%</span></div>
-          <div class="poll-opt" onclick="vt(this,'ph')">Can AI predict what becomes "timeless"?<span style="flex:1"></span><span class="p-pct">29%</span></div>
-          <div class="poll-opt" onclick="vt(this,'ph')">Is minimalism becoming the new status symbol?<span style="flex:1"></span><span class="p-pct">19%</span></div>
-          <div class="poll-opt" onclick="vt(this,'ph')">Can AI measure cultural momentum?<span style="flex:1"></span><span class="p-pct">14%</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    <div class="footer-grid">
-      <div><div class="footer-name">Chelsy<span style="color:var(--sage)">.</span></div><div class="footer-tagline">Business Analytics &amp; Finance student at Rutgers, exploring the intersection of fashion, data, consumer behavior, and strategy.</div></div>
-      <div><div class="footer-col-title">Navigate</div><button class="footer-link" onclick="go('about')">About</button><button class="footer-link" onclick="go('opinions')">Opinions</button><button class="footer-link" onclick="go('research')">Research</button><button class="footer-link" onclick="go('aesthetics')">Aesthetics</button></div>
-      <div><div class="footer-col-title">Connect</div><button class="footer-link" onclick="go('work')">Work</button><button class="footer-link" onclick="go('interact')">Reader Mail</button><button class="footer-link">shahchelsy@gmail.com</button><button class="footer-link">LinkedIn ↗</button></div>
-    </div>
-    <div class="footer-bottom"><span class="footer-copy">© 2026 Chelsy Shah. All rights reserved.</span><span class="footer-copy">Rutgers University · Class of 2027</span></div>
-  </div>
-</div><!-- /home -->
-
 
 <!-- ████████ ABOUT ████████ -->
 <div id="p-about" class="pg">
