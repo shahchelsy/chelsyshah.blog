@@ -141,11 +141,14 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
 
 /* ── RESEARCH ── */
   
+
 /* ── ROI FORECASTING PROJECT ── */
 
 .roi-project {
   margin-bottom: 52px;
 }
+
+/* Project heading */
 
 .roi-topline {
   display: flex;
@@ -166,7 +169,7 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
 
 .roi-heading {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: 28px;
   font-weight: 600;
   color: var(--navy);
   line-height: 1.15;
@@ -174,18 +177,21 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
 }
 
 .roi-subheading {
-  font-size: 14px;
+  font-size: 12px;
   font-style: italic;
   color: var(--smoke);
+  line-height: 1.7;
   margin-bottom: 24px;
 }
 
+/* Project descriptions */
+
 .roi-text {
   font-size: 13px;
-  line-height: 1.9;
+  line-height: 1.85;
   color: var(--smoke);
   max-width: 900px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .roi-section-label {
@@ -193,24 +199,59 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   font-weight: 500;
   letter-spacing: .18em;
   color: var(--sage);
-  margin: 36px 0 16px;
+  text-transform: uppercase;
+  margin: 34px 0 16px;
 }
+
+/* Methodology cards */
+
+.roi-method-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 32px;
+}
+
+.roi-method-item {
+  background: var(--white);
+  border: 1px solid var(--sourdough);
+  border-radius: var(--r-sm);
+  padding: 18px;
+}
+
+.roi-method-item strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.roi-method-item p {
+  font-size: 12px;
+  line-height: 1.75;
+  color: var(--smoke);
+}
+
+/* Screenshot gallery */
 
 .roi-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 16px;
+  margin: 22px 0 30px;
 }
 
 .roi-chart-card {
   background: var(--white);
   border: 1px solid var(--sourdough);
   border-radius: var(--r);
-  padding: 14px;
+  padding: 12px;
   margin: 0;
   min-width: 0;
   overflow: hidden;
-  transition: .25s;
+  transition: transform .25s, box-shadow .25s;
 }
 
 .roi-chart-card:hover {
@@ -223,6 +264,7 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   background: var(--cream);
   border-radius: var(--r-sm);
   overflow: hidden;
+  cursor: zoom-in;
 }
 
 .roi-chart-card img {
@@ -230,6 +272,8 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   width: 100%;
   height: 280px;
   object-fit: contain;
+  object-position: center;
+  background: var(--white);
   transition: transform .25s;
 }
 
@@ -237,32 +281,41 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   transform: scale(1.02);
 }
 
+/* Screenshot explanations */
+
 .roi-chart-card figcaption {
-  padding: 16px 4px 4px;
+  padding: 16px 8px 8px;
 }
 
 .roi-number {
   display: block;
   font-size: 9px;
+  font-weight: 500;
   letter-spacing: .15em;
   color: var(--sage);
-  font-weight: 500;
   margin-bottom: 8px;
 }
 
 .roi-chart-card h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  color: var(--navy);
+  font-size: 17px;
   font-weight: 600;
-  margin-bottom: 8px;
+  color: var(--navy);
+  margin-bottom: 10px;
 }
 
 .roi-chart-card p {
   font-size: 12px;
-  line-height: 1.75;
+  line-height: 1.8;
   color: var(--smoke);
+  margin-bottom: 12px;
 }
+
+.roi-chart-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Strategic takeaway */
 
 .roi-takeaway {
   margin-top: 28px;
@@ -276,8 +329,8 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   display: block;
   color: var(--moss);
   font-size: 10px;
-  letter-spacing: .16em;
   font-weight: 500;
+  letter-spacing: .16em;
   margin-bottom: 12px;
 }
 
@@ -287,6 +340,8 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   color: var(--navy);
 }
 
+/* Project skill tags */
+
 .roi-tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -294,28 +349,45 @@ body{font-family:'DM Sans',sans-serif;font-weight:300;background:var(--cream);co
   margin-top: 24px;
 }
 
+/* Separation from next research project */
+
 .roi-project-divider {
   border: none;
   border-top: 1px solid var(--sourdough);
   margin-bottom: 40px;
 }
 
+/* Mobile responsive layout */
+
 @media (max-width: 700px) {
+
+  .roi-heading {
+    font-size: 26px;
+  }
+
+  .roi-method-grid {
+    grid-template-columns: 1fr;
+  }
+
   .roi-gallery {
     grid-template-columns: 1fr;
   }
 
   .roi-chart-card img {
     height: auto;
-    max-height: 340px;
+    max-height: none;
   }
 
-  .roi-heading {
-    font-size: 28px;
+  .roi-chart-card {
+    padding: 10px;
   }
 
   .roi-takeaway {
     padding: 18px;
+  }
+
+  .roi-text {
+    font-size: 13px;
   }
 }
 .research-block{display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:center}
@@ -862,7 +934,8 @@ My goal is to build a career where I can contribute to the future of the fashion
   <div style="padding:48px 28px;background:var(--plaster)">
 
     
-<!-- FEATURED PROJECT: ROI FORECASTING & CAPITAL EFFICIENCY -->
+
+<!-- FEATURED PROJECT: ROI FORECASTING -->
 
 <section class="roi-project" id="roi-project">
 
@@ -876,70 +949,159 @@ My goal is to build a career where I can contribute to the future of the fashion
   </h2>
 
   <p class="roi-subheading">
-    Understanding how financial decisions influence costs,
-    returns, and capital allocation.
+    Analyzing spending, sales performance, and financial scenarios
+    to support more efficient capital allocation.
+  </p>
+
+  <!-- PROJECT OVERVIEW -->
+
+  <div class="roi-section-label">PROJECT OVERVIEW</div>
+
+  <p class="roi-text">
+    How can a business decide where to invest its budget
+    to generate stronger returns? This project examines
+    the relationship between spending, sales performance,
+    and financial outcomes through an Excel-based
+    forecasting and scenario analysis model.
   </p>
 
   <p class="roi-text">
-    This project explores how financial modeling can support
-    more informed business decisions. Using Excel, I examined
-    sales performance, spending patterns, investment scenarios,
-    and projected returns to understand how different financial
-    assumptions can influence business performance and capital
-    efficiency.
+    The objective was to evaluate how changes in spending
+    and sales assumptions affect projected performance,
+    compare alternative budget allocations, and identify
+    opportunities for more informed capital allocation.
+    Rather than relying on a single forecast, the model
+    examines different financial scenarios to understand
+    the potential consequences of each decision.
+  </p>
+
+  <!-- METHODOLOGY -->
+
+  <div class="roi-section-label">METHODOLOGY &amp; TOOLS</div>
+
+  <p class="roi-text">
+    I used Microsoft Excel to organize and analyze financial
+    data, explore relationships between spending and sales,
+    and compare the results of alternative scenarios.
+    Exploratory data analysis helped establish patterns
+    in the underlying data before evaluating the model outputs.
   </p>
 
   <p class="roi-text">
-    Rather than looking at financial figures in isolation,
-    the objective was to compare alternative scenarios,
-    identify meaningful patterns, and understand how data
-    can support strategic investment and resource allocation
-    decisions.
+    The workbook brings together data analysis, forecasting,
+    scenario comparisons, financial summaries, and model
+    diagnostics. These components allow the results to
+    be examined from different perspectives rather than
+    relying on a single projected outcome.
   </p>
 
-  <div class="roi-section-label">MODEL EXPLORATION</div>
+  <div class="roi-method-grid">
+
+    <div class="roi-method-item">
+      <strong>Data Analysis</strong>
+      <p>
+        Exploring historical patterns and relationships
+        between spending and sales performance.
+      </p>
+    </div>
+
+    <div class="roi-method-item">
+      <strong>Scenario Modeling</strong>
+      <p>
+        Comparing alternative assumptions to understand
+        how financial outcomes may change.
+      </p>
+    </div>
+
+    <div class="roi-method-item">
+      <strong>Financial Evaluation</strong>
+      <p>
+        Reviewing model outputs to support budget
+        planning and capital allocation decisions.
+      </p>
+    </div>
+
+    <div class="roi-method-item">
+      <strong>Model Diagnostics</strong>
+      <p>
+        Examining forecasting reliability and
+        the limitations of model-based estimates.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- MODEL EVIDENCE -->
+
+  <div class="roi-section-label">MODEL EXPLORATION &amp; RESULTS</div>
+
+  <p class="roi-text">
+    The following worksheets document the analytical
+    process, from exploring the underlying data to
+    comparing scenarios and evaluating the model.
+    Each addresses a different part of the
+    financial decision-making process.
+  </p>
 
   <div class="roi-gallery">
 
-    <!-- 01: RESULTS -->
+    <!-- 01 RESULTS -->
     <figure class="roi-chart-card">
       <a href="results.jpg" target="_blank"
          rel="noopener noreferrer">
         <img src="results.jpg"
-             alt="ROI forecasting results"
+             alt="ROI forecasting results dashboard"
              loading="lazy">
       </a>
+
       <figcaption>
         <span class="roi-number">01 / RESULTS</span>
         <h3>Financial Model Outputs</h3>
+
         <p>
-          Reviewing financial model outputs to understand
-          projected performance and support investment
-          decision-making.
+          This worksheet brings the analysis together
+          into a financial dashboard, making it easier
+          to compare budget allocations, spending,
+          sales, and projected outcomes.
+        </p>
+
+        <p>
+          The purpose is to translate model calculations
+          into information that can support investment
+          and budget planning decisions.
         </p>
       </figcaption>
     </figure>
 
-    <!-- 02: SCENARIOS -->
+    <!-- 02 SCENARIOS -->
     <figure class="roi-chart-card">
       <a href="scenarios.jpg" target="_blank"
          rel="noopener noreferrer">
         <img src="scenarios.jpg"
-             alt="Financial scenario comparison"
+             alt="Financial scenarios worksheet"
              loading="lazy">
       </a>
+
       <figcaption>
         <span class="roi-number">02 / SCENARIOS</span>
         <h3>Scenario Comparison</h3>
+
         <p>
-          Comparing different spending and sales assumptions
-          to examine their impact on projected financial
-          outcomes.
+          This worksheet provides the underlying
+          scenario data used to compare different
+          spending and sales assumptions.
+        </p>
+
+        <p>
+          It helps examine how changes in budget
+          allocation can affect projected outcomes
+          and illustrates the financial trade-offs
+          between alternative decisions.
         </p>
       </figcaption>
     </figure>
 
-    <!-- 03: EXPLORATORY DATA ANALYSIS -->
+    <!-- 03 EDA -->
     <figure class="roi-chart-card">
       <a href="eda.jpg" target="_blank"
          rel="noopener noreferrer">
@@ -947,54 +1109,103 @@ My goal is to build a career where I can contribute to the future of the fashion
              alt="Exploratory data analysis"
              loading="lazy">
       </a>
+
       <figcaption>
         <span class="roi-number">03 / DATA EXPLORATION</span>
         <h3>Exploratory Data Analysis</h3>
+
         <p>
-          Examining underlying data patterns and relationships
-          to better understand sales, spending, and financial
-          performance.
+          Before interpreting forecasts, it is
+          important to understand the data behind them.
+          This worksheet explores spending patterns,
+          sales behavior, and relationships within
+          the dataset.
+        </p>
+
+        <p>
+          These observations provide context for
+          understanding model outputs and identifying
+          patterns worth investigating further.
         </p>
       </figcaption>
     </figure>
 
-    <!-- 04: MODEL DIAGNOSTICS -->
+    <!-- 04 DIAGNOSTICS -->
     <figure class="roi-chart-card">
       <a href="modeldiagnostics.jpg" target="_blank"
          rel="noopener noreferrer">
         <img src="modeldiagnostics.jpg"
-             alt="Financial model diagnostics"
+             alt="Model diagnostics worksheet"
              loading="lazy">
       </a>
+
       <figcaption>
         <span class="roi-number">04 / MODEL DIAGNOSTICS</span>
         <h3>Model Evaluation</h3>
+
         <p>
-          Evaluating model diagnostics to understand
-          forecasting reliability and the limitations
-          of projected financial outcomes.
+          Forecasting results should not be interpreted
+          without considering their reliability.
+          The diagnostic analysis provides a way to
+          examine how the model performs and where
+          its estimates may be limited.
+        </p>
+
+        <p>
+          This matters because a financial decision
+          should account for uncertainty rather than
+          treating projected values as guarantees.
         </p>
       </figcaption>
     </figure>
 
   </div>
 
+  <!-- CONCLUSION -->
+
+  <div class="roi-section-label">CONCLUSION &amp; FUTURE APPLICATION</div>
+
+  <p class="roi-text">
+    The analysis demonstrates how spending and sales
+    assumptions can be evaluated together to compare
+    financial scenarios. Bringing these comparisons
+    into one model makes it easier to assess competing
+    budget decisions and understand the implications
+    of different allocation strategies.
+  </p>
+
+  <p class="roi-text">
+    Going forward, the model could be developed further
+    by incorporating updated financial data, expanding
+    the range of scenarios, and testing forecast
+    performance against actual outcomes. This would
+    help move the analysis beyond one-time projections
+    toward a more continuous financial planning
+    and decision-support process.
+  </p>
+
+  <!-- STRATEGIC TAKEAWAY -->
+
   <div class="roi-takeaway">
-    <span class="roi-takeaway-label">STRATEGIC TAKEAWAY</span>
+    <span class="roi-takeaway-label">
+      STRATEGIC TAKEAWAY
+    </span>
     <p>
-      What interests me most about financial modeling is
-      not just predicting a return, but understanding
-      the decisions behind it. Comparing financial scenarios
-      helps businesses recognize trade-offs, evaluate risks,
-      and allocate capital more efficiently.
+      Financial forecasting creates value when it
+      helps businesses make better decisions, not
+      simply when it produces a projected number.
+      The real advantage lies in understanding the
+      trade-offs between spending, expected returns,
+      risk, and the efficient use of available capital.
     </p>
   </div>
 
   <div class="roi-tag-row">
-    <span class="label sage">Excel</span>
+    <span class="label sage">Microsoft Excel</span>
     <span class="label mist">Financial Modeling</span>
-    <span class="label cream">ROI Forecasting</span>
-    <span class="label sage">Scenario Analysis</span>
+    <span class="label cream">Scenario Analysis</span>
+    <span class="label sage">Forecasting</span>
+    <span class="label mist">Capital Allocation</span>
   </div>
 
 </section>
@@ -1002,6 +1213,7 @@ My goal is to build a career where I can contribute to the future of the fashion
 <hr class="roi-project-divider">
 
 <!-- END FEATURED ROI PROJECT -->
+
 
     
     <div class="research-block" style="margin-bottom:48px">
